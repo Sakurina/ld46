@@ -104,6 +104,12 @@ function MainLayer:keypressed(key, scancode, isrepeat)
         self:wait_for_text_input()
     elseif current_mode == "wait_for_any_input" then
         self:wait_for_any_input_input()
+    elseif current_mode == "planning" then
+        if key == "s" then
+            self:spawn_schedule_layer()
+        elseif key == "l" then
+            self:spawn_lifestyle_layer()
+        end
     end
 end
 
@@ -131,6 +137,14 @@ end
 
 function MainLayer:wait_for_any_input_input()
     self:pop_current_mode()
+end
+
+function MainLayer:spawn_schedule_layer()
+    layer_manager:prepend(ScheduleLayer(self.calendar))
+end
+
+function MainLayer:spawn_lifestyle_layer()
+    layer_manager:prepend(LifestyleLayer())
 end
 
 function MainLayer:start_of_new_month(y, m)
