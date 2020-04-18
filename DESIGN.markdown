@@ -4,6 +4,26 @@ If you are a rando reading this, there will probably be spoilers below, so play 
 
 * Stats
   * We should probably get a flavorful list of stats that lead towards our various endings
+  * Possible Personal Stats:
+    * Age
+    * Height
+    * Weight
+    * Birthday/Sign
+  * Possible Stats to Check against:
+    * Con
+    * Str
+    * Int
+    * Charisma
+    * Morality
+    * Stress
+    * Renown
+    * Trust
+  * Hidden meters
+    * Business
+    * Combat Ability
+    * Research
+    * Cooking
+    * Robotics
 * Stat Changes
   * Stat increases have a minimum increase amount and a critical increase amount
   * By default, you have a 10% chance of a critical increase
