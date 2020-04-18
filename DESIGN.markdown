@@ -81,6 +81,7 @@ If you are a rando reading this, there will probably be spoilers below, so play 
   * Perfection vs. imperfection
     * Imperfection makes humans human
   * Food
+  * I need wacky alien comic relief
 * **Dump Possible Titles here**
   * [M]achine [L]earning
     * i like this one a lot -g
