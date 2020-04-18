@@ -4,13 +4,11 @@ function MainLayer:new()
     MainLayer.super.new(self)
     self.layer_name = "MainLayer"
     self.game_state = nil
-    --self:load_state()
+    self:load_state()
     self.box_patch = patchy.load("gfx/textbox.9.png")
 
     -- calendar
     self.calendar = Calendar(12, 1)
-    self.calendar:set_week_event(1, TestEventTwo())
-    self.calendar:set_week_event(3, TestEvent())
     self.mode_queue = {"wait_for_text", "wait_for_any_input", "planning", "event_loop"}
 
     -- dialogue state
@@ -92,6 +90,7 @@ function MainLayer:update(dt)
                 local event = self.calendar:todays_daily_event()
                 event:determine_outcome({}) -- passing lifestyle choices todo
                 self:set_textbox_string(event.outcome_text)
+                self:apply_stat_growths(self.game_state, event.stat_growths)
             end
         end
     end
@@ -172,6 +171,16 @@ function MainLayer:append_mode(mode)
     self.mode_queue = lume.concat(self.mode_queue, { mode })
 end
 
+function MainLayer:apply_stat_growths(state, stat_growths)
+    log(lume.serialize(state.stats))
+    log(lume.serialize(stat_growths))
+    lume.each(stat_growths, function(sg)
+        local target_stat = sg.impacted_stat
+        local original_value = state.stats[target_stat]
+        state.stats[target_stat] = original_value + sg.outcome
+    end)
+end
+
 -- SAVE DATA
 function MainLayer:load_state()
     local state_json_info = {} 
@@ -182,7 +191,7 @@ function MainLayer:load_state()
         self.game_state = json.decode(contents)
     else
         log("[MainLayer] Game state file not found, loading default state")
-        self.game_state = lume.clone(default_game_state)
+        self.game_state = default_game_state
     end
 end
 

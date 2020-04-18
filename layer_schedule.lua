@@ -8,7 +8,7 @@ function ScheduleLayer:new(calendar)
     self.propagate_input_to_underlying = false
     self.box_patch = patchy.load("gfx/textbox.9.png")
 
-    self.events = { "TestEvent", "TestEventTwo" }
+    self.events = { "Part-Time Job", "Nap" }
     self.cached_week_row_rects = {}
     self.cached_weekday_col_rects = {}
     self.cached_weekday_rects = {}
@@ -169,9 +169,9 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
 end
 
 function ScheduleLayer:event_for_id(id)
-    if id == "TestEvent" then
-        return TestEvent()
-    elseif id == "TestEventTwo" then
-        return TestEventTwo()
+    if id == "Part-Time Job" then
+        return JobEvent()
+    elseif id == "Nap" then
+        return NapEvent()
     end
 end
