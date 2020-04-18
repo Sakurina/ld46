@@ -96,8 +96,15 @@ If you are a rando reading this, there will probably be spoilers below, so play 
   * Cyberpunk Mugging
 * **Possible Occupation Endings**
   * Chef
+      * high cha, high dex
   * Salaryman
+      * low int, low cha
   * Alchemist
+      * high int
   * Researcher (stays with you)
+      * high int, high morality, high trust
   * Pirate (delinquent end)
+      * high str, low morality
   * She leaves and the world blows up
+      * when you don't meet any requirement for any ending
+
