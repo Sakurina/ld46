@@ -17,7 +17,8 @@ end
 
 function ScheduleLayer:draw(dt)
     -- bg
-    love.graphics.setColor(0, 0, 0, 0.5)
+    local bgc = constants.dark_bg_color
+    love.graphics.setColor(bgc.r, bgc.g, bgc.b, 0.5)
     love.graphics.rectangle("fill", 0, 0, 1280, 720)
 
     -- box
@@ -39,7 +40,9 @@ function ScheduleLayer:draw(dt)
     local cal_h = 100 * 6
 
     -- column A "calendar view" / 2/3
-    love.graphics.setColor(1, 0, 0, 1)
+    local txt = constants.system_txt_color
+    local em = constants.db16_col12
+    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     love.graphics.rectangle("line", cal_x, cal_y, cal_w, cal_h)
 
     -- week rows
@@ -47,7 +50,7 @@ function ScheduleLayer:draw(dt)
     do
         if w == self.current_week then
             -- set highlight color
-            love.graphics.setColor(0, 1, 0, 1)
+            love.graphics.setColor(em.r, em.g, em.b, 1)
         else
             -- set no color
             love.graphics.setColor(0, 0, 0, 0)
@@ -64,13 +67,13 @@ function ScheduleLayer:draw(dt)
         local rect = self.cached_week_row_rects[w]
 
         love.graphics.rectangle("fill", rect.x, rect.y, rect.w, rect.h)
-        love.graphics.setColor(1, 0, 0, 1)
+        love.graphics.setColor(txt.r, txt.g, txt.b, 1)
         love.graphics.rectangle("line", rect.x, rect.y, rect.w, rect.h)
     end
 
     
     -- weekday columns
-    love.graphics.setColor(1, 0, 0, 1)
+    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     for wd = 1, 7, 1
     do
         if self.cached_weekday_col_rects[wd] == nil then
@@ -115,7 +118,6 @@ function ScheduleLayer:draw(dt)
         love.graphics.printf(id, rect.x, rect.y, rect.w, "center")
         index = index + 1
     end)
-    love.graphics.setColor(1, 1, 1, 1)
     love.graphics.print(lume.format("Week {1}", { self.current_week }), act_x, cal_y)
 end
 

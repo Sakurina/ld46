@@ -8,7 +8,8 @@ end
 
 function LifestyleLayer:draw(dt)
     -- bg
-    love.graphics.setColor(0, 0, 0, 0.5)
+    local bgc = constants.dark_bg_color
+    love.graphics.setColor(bgc.r, bgc.g, bgc.b, 0.5)
     love.graphics.rectangle("fill", 0, 0, 1280, 720)
 end
 

@@ -11,7 +11,8 @@ end
 -- CALLBACKS
 
 function ControlsOverlayLayer:draw()
-    love.graphics.setColor(0, 0, 0, 0.5)
+    local bgc = constants.dark_bg_color
+    love.graphics.setColor(bgc.r, bgc.g, bgc.b, 0.5)
     love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
     love.graphics.setColor(1, 1, 1, 1)
 end

@@ -4,14 +4,18 @@ function LayerManager:new()
     LayerManager.super.new(self)
     self.first = 0
     self.last = -1
-    self.controls = {
+    self.default_controls = {
         Up = "w",
         Down = "s",
         Left = "a",
         Right = "d",
         Confirm = "return",
-        Back = "escape"
+        Back = "escape",
+        Stats = "1",
+        Schedule = "2",
+        Lifestyle = "3"
     }
+    self.controls = self.default_controls
 end
 
 -- LAYER MANAGEMENT
@@ -68,7 +72,7 @@ function LayerManager:reload_controls()
     if controls_json_info.size ~= nil then
         log("[LayerManager] Reloading controls from existing controls.json file")
         local contents, size = love.filesystem.read("controls.json")
-        self.controls = json.decode(contents)
+        self.controls = lume.extend({}, self.controls, json.decode(contents))
     else
         log("[LayerManager] Reloading controls failed, using defaults")
     end

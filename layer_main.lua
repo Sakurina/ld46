@@ -20,7 +20,8 @@ end
 
 function MainLayer:draw()
     -- background layer
-    love.graphics.setColor(0.87, 0.93, 0.84, 1)
+    local bgc = constants.light_bg_color
+    love.graphics.setColor(bgc.r, bgc.g, bgc.b, 1)
     love.graphics.rectangle("fill", 0, 0, 1280, 720) -- temp bg
 
     -- character portrait
@@ -51,6 +52,8 @@ function MainLayer:draw()
     txt_w = txt_w * box_scale - box_scale * 12
     txt_h = txt_h * box_scale - box_scale * 6
 
+    local txt = constants.system_txt_color
+    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     -- calendar string
     local date = lume.format("Y{1} M{2}\nDay {3}", { self.calendar.year, self.calendar.month, self.calendar.current_day })
     love.graphics.printf(date, cal_x, cal_y, cal_w, "center")
@@ -104,10 +107,12 @@ function MainLayer:keypressed(key, scancode, isrepeat)
     elseif current_mode == "wait_for_any_input" then
         self:wait_for_any_input_input()
     elseif current_mode == "planning" then
-        if key == "s" then
+        if key == layer_manager.controls["Schedule"] then
             self:spawn_schedule_layer()
-        elseif key == "l" then
+        elseif key == layer_manager.controls["Lifestyle"] then
             self:spawn_lifestyle_layer()
+        elseif key == layer_manager.controls["Stats"] then
+            self:spawn_stats_layer()
         end
     end
 end
@@ -144,6 +149,10 @@ end
 
 function MainLayer:spawn_lifestyle_layer()
     layer_manager:prepend(LifestyleLayer())
+end
+
+function MainLayer:spawn_stats_layer()
+    layer_manager:prepend(StatsLayer())
 end
 
 function MainLayer:start_of_new_month(y, m)

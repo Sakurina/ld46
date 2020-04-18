@@ -27,6 +27,7 @@ require("layer_controls")
 require("layer_menu")
 require("layer_lifestyle")
 require("layer_schedule")
+require("layer_stats")
 require("layer_main")
 require("constants")
 
