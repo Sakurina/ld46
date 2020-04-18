@@ -87,3 +87,10 @@ If you are a rando reading this, there will probably be spoilers below, so play 
     * i like this one a lot -g
   * aLiVE
   * Princess Maker VII Remake
+* **Possible Events**
+  * YAKINIKU
+  * RAMEN
+  * BORGAR
+  * Shopping
+  * Walk through City
+  * Cyberpunk Mugging
