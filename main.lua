@@ -6,12 +6,23 @@ anim8 = require "deps/anim8"
 require("deps/tesound")
 require('deps/camera')
 require("helpers")
+-- game logic
+require("_choices/lifestyle_choice")
+require("_choices/lifestyle_choice_option")
+require("_choices/test_choice")
+require("_events/daily_event")
+require("_events/test_event")
+require("stat_growth")
+require("calendar_day")
+require("calendar")
+-- layers
 require("layer")
 require("layermanager")
 require("layer_transition")
 require("layer_controls_overlay")
 require("layer_controls")
 require("layer_menu")
+require("layer_main")
 require("constants")
 
 function love.load()

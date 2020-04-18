@@ -74,7 +74,7 @@ function MenuLayer:select_item()
     log(lume.format("[{1}] Index {2} selected", { self.layer_name, self.selected_index }))
     local destination_layer = null
     if self.selected_index == 1 then
-        destination_layer = SRPGLayer()
+        destination_layer = MainLayer()
     end
     if self.selected_index == 2 then
         destination_layer = ControlsLayer()

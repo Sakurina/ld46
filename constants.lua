@@ -21,5 +21,8 @@ constants = {
     ui_em_g = .09,
     ui_em_b = .16,
 
-    unit_menu_height_per_item = 56
+    unit_menu_height_per_item = 56,
+
+    default_luck_value = 0.1,
+    default_buffed_luck_delta = 0.4
 }
