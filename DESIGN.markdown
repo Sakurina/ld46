@@ -9,21 +9,20 @@ If you are a rando reading this, there will probably be spoilers below, so play 
     * Height
     * Weight
     * Birthday/Sign
-  * Possible Stats to Check against:
-    * Con
+  * Visible Stats to Check against:
     * Str
     * Int
     * Charisma
+    * Dex
     * Morality
+  * Visible meters
     * Stress
-    * Renown
-    * Trust
   * Hidden meters
     * Business
     * Combat Ability
     * Research
     * Cooking
-    * Robotics
+    * Alchemy
 * Stat Changes
   * Stat increases have a minimum increase amount and a critical increase amount
   * By default, you have a 10% chance of a critical increase
@@ -87,3 +86,54 @@ If you are a rando reading this, there will probably be spoilers below, so play 
     * i like this one a lot -g
   * aLiVE
   * Princess Maker VII Remake
+* **Possible Events**
+  * YAKINIKU
+  * RAMEN
+  * BORGAR
+  * Shopping
+  * Walk through City
+  * Cyberpunk Mugging
+* **Possible Occupation Endings**
+  * Chef
+      * high cha, high dex
+  * Salaryman
+      * low int, low cha
+  * Alchemist
+      * high int
+  * Researcher (stays with you)
+      * high int, high morality, high trust
+  * Pirate (delinquent end)
+      * high str, low morality
+  * She leaves and the world blows up
+      * when you don't meet any requirement for any ending
+* **Stat Increasing Activities**
+  * Study, requires tuition fee
+    * +int
+  * Gym Training, requires membership fee
+    * +str, combat
+  * Read Human Philosophy Books, requires purchasing books
+    * +morality
+  * Karaoke, rental fee
+    * +cha
+  * Culinary Training
+    * +dex, cooking
+* **Currency Increasing Activities**
+  * Work at restaurant
+    * +cooking, stress
+    * on poor performance, break plates and have to pay for them
+  * Work at black market
+    * ++money, stress, combat
+    * --morality
+  * Work in your Lab
+    * +trust, int, research
+  * Work as Accountant
+    * ++stress
+    * +money, business
+    * -int
+  * Delivery service
+    * +money, dex, stress
+* **Stress Reducing Activities**
+  * Short Rest - 1 week?
+  * Long Rest - 2 weeks?
+  * Vacation - Costs money but reduces stress a lot
+
