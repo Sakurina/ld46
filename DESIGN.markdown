@@ -107,19 +107,31 @@ If you are a rando reading this, there will probably be spoilers below, so play 
   * She leaves and the world blows up
       * when you don't meet any requirement for any ending
 * **Stat Increasing Activities**
-  *
+  * Study, requires tuition fee
+    * +int
+  * Gym Training, requires membership fee
+    * +str, combat
+  * Read Human Philosophy Books, requires purchasing books
+    * +morality
+  * Karaoke, rental fee
+    * +cha
+  * Culinary Training
+    * +dex, cooking
 * **Currency Increasing Activities**
   * Work at restaurant
-    * + cooking, stress
+    * +cooking, stress
     * on poor performance, break plates and have to pay for them
   * Work at black market
-    * ++ money, stress, combat
-    * -- morality
+    * ++money, stress, combat
+    * --morality
   * Work in your Lab
-    * + trust, int, research
+    * +trust, int, research
   * Work as Accountant
-    * ++ stress
-    * + money, business
+    * ++stress
+    * +money, business
+    * -int
+  * Delivery service
+    * +money, dex, stress
 * **Stress Reducing Activities**
   * Short Rest - 1 week?
   * Long Rest - 2 weeks?
