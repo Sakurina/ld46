@@ -94,3 +94,10 @@ If you are a rando reading this, there will probably be spoilers below, so play 
   * Shopping
   * Walk through City
   * Cyberpunk Mugging
+* **Possible Occupation Endings**
+  * Chef
+  * Salaryman
+  * Alchemist
+  * Researcher (stays with you)
+  * Pirate (delinquent end)
+  * She leaves and the world blows up
