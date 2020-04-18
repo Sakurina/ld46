@@ -5,6 +5,7 @@ json = require "deps/json"
 anim8 = require "deps/anim8"
 require("deps/tesound")
 require('deps/camera')
+patchy = require('deps/patchy')
 require("helpers")
 -- game logic
 require("_choices/lifestyle_choice")
@@ -12,6 +13,7 @@ require("_choices/lifestyle_choice_option")
 require("_choices/test_choice")
 require("_events/daily_event")
 require("_events/test_event")
+require("_events/test_event2")
 require("stat_growth")
 require("calendar_day")
 require("calendar")
@@ -49,4 +51,16 @@ end
 
 function love.keyreleased(key, scancode)
     layer_manager:keyreleased(key, scancode)
+end
+
+function love.mousepressed(x, y, button, istouch, presses)
+    layer_manager:mousepressed(x, y, button, istouch, presses)
+end
+
+function love.mousereleased(x, y, button, istouch, presses)
+    layer_manager:mousereleased(x, y, button, istouch, presses)
+end
+
+function love.mousemoved(x, y, dx, dy, istouch)
+    layer_manager:mousemoved(x, y, dx, dy, istouch)
 end

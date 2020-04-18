@@ -35,3 +35,15 @@ end
 function Layer:keyreleased(key, scancode)
     return
 end
+
+function Layer:mousepressed(x, y, button, istouch, presses)
+    return
+end
+
+function Layer:mousereleased(x, y, button, istouch, presses)
+    return
+end
+
+function Layer:mousemoved(x, y, dx, dy, istouch)
+    return
+end

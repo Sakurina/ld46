@@ -112,3 +112,33 @@ function LayerManager:keyreleased(key, scancode)
         layer:keyreleased(key, scancode)
     end
 end
+
+function LayerManager:mousepressed(x, y, button, istouch, presses)
+    for i = self.first, self.last do
+        local layer = self[i]
+        layer:mousepressed(x, y, button, istouch, presses)
+        if layer.propagate_input_to_underlying ~= true then
+            return
+        end
+    end
+end
+
+function LayerManager:mousereleased(x, y, button, istouch, presses)
+    for i = self.first, self.last do
+        local layer = self[i]
+        layer:mousereleased(x, y, button, istouch, presses)
+        if layer.propagate_input_to_underlying ~= true then
+            return
+        end
+    end
+end
+
+function LayerManager:mousemoved(x, y, dx, dy, istouch)
+    for i = self.first, self.last do
+        local layer = self[i]
+        layer:mousemoved(x, y, button, istouch, presses)
+        if layer.propagate_input_to_underlying ~= true then
+            return
+        end
+    end
+end

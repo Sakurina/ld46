@@ -1,9 +1,9 @@
 constants = {
     big_font = love.graphics.newFont("deps/m5x7.ttf", 72),
 
-    ui_bg_r = 1,
-    ui_bg_g = .84,
-    ui_bg_b = .25,
+    ui_bg_r = .08,
+    ui_bg_g = .05,
+    ui_bg_b = .11,
 
     ui_border_r = .08,
     ui_border_g = .06,

@@ -5,27 +5,158 @@ function MainLayer:new()
     self.layer_name = "MainLayer"
     self.game_state = nil
     --self:load_state()
+    self.box_patch = patchy.load("gfx/textbox.9.png")
+
+    -- calendar
+    self.calendar = Calendar(12, 1)
+    self.calendar:set_week_event(1, TestEventTwo())
+    self.calendar:set_week_event(3, TestEvent())
+    self.mode_queue = {"wait_for_text", "wait_for_any_input", "planning", "event_loop"}
+
+    -- dialogue state
+    self.textbox_string = "Theoretically, this text should word wrap and it shouldn't look weird."
+    self.currently_shown_length = 0
 end
 
 -- CALLBACKS
 
 function MainLayer:draw()
-    return
+    -- background layer
+    love.graphics.setColor(0.87, 0.93, 0.84, 1)
+    love.graphics.rectangle("fill", 0, 0, 1280, 720) -- temp bg
+
+    -- character portrait
+    -- todo
+
+    -- boxes
+    local box_scale = 3
+    love.graphics.push()
+    love.graphics.scale(box_scale, box_scale)
+    love.graphics.setColor(1, 1, 1, 1)
+    local cal_x, cal_y, cal_w, cal_h = self.box_patch:draw(0, 0, 240 / box_scale, 240 / box_scale) -- calendar
+    local dec_x, dec_y, dec_w, dec_h = self.box_patch:draw(1040 / box_scale, 0, 240 / box_scale, 240 / box_scale) -- decisions
+    local txt_x, txt_y, txt_w, txt_h = self.box_patch:draw(0, 480 / box_scale, 1280 / box_scale, 240 / box_scale) -- textbox
+    love.graphics.pop()
+
+    cal_x = cal_x * box_scale
+    cal_y = cal_y * box_scale
+    cal_w = cal_w * box_scale
+    cal_h = cal_h * box_scale
+
+    dec_x = dec_x * box_scale
+    dec_y = dec_y * box_scale
+    dec_w = dec_w * box_scale
+    dec_h = dec_h * box_scale
+
+    txt_x = txt_x * box_scale + box_scale * 12
+    txt_y = txt_y * box_scale + box_scale * 6
+    txt_w = txt_w * box_scale - box_scale * 12
+    txt_h = txt_h * box_scale - box_scale * 6
+
+    -- calendar string
+    local date = lume.format("Y{1} M{2}\nDay {3}", { self.calendar.year, self.calendar.month, self.calendar.current_day })
+    love.graphics.printf(date, cal_x, cal_y, cal_w, "center")
+
+    -- textbox string
+    local chopped = string.sub(self.textbox_string, 1, self.currently_shown_length)
+    love.graphics.printf(chopped, txt_x, txt_y, txt_w, "left")
+    love.graphics.setScissor()
 end
 
 function MainLayer:update(dt)
-    return
+    if self.currently_shown_length < #self.textbox_string then
+        -- dialogue increment
+        self.currently_shown_length = self.currently_shown_length + 1
+    elseif lume.first(self.mode_queue) == "wait_for_text" then
+        self:pop_current_mode()
+    elseif lume.first(self.mode_queue) == "planning" then
+        return
+    elseif lume.first(self.mode_queue) == "event_loop" then
+        self.calendar:next_day()
+
+        if self.calendar.complete == true then
+            -- update calendar
+            local year = self.calendar.year
+            local month = self.calendar.month + 1
+            if month > 12 then
+                month = month - 12
+                year = year + 1
+            end
+            self.calendar = Calendar(year, month)
+
+            -- return to planning mode
+            self:start_of_new_month(year, month)
+        else 
+            -- still events to do
+            if self.calendar:daily_event_needs_handling_today() then
+                local event = self.calendar:todays_daily_event()
+                event:determine_outcome({}) -- passing lifestyle choices todo
+                self:set_textbox_string(event.outcome_text)
+            end
+        end
+    end
 end
 
 function MainLayer:keypressed(key, scancode, isrepeat)
-    return
+    log(lume.serialize(self.mode_queue))
+    local current_mode = lume.first(self.mode_queue)
+    if current_mode == "wait_for_text" then
+        self:wait_for_text_input()
+    elseif current_mode == "wait_for_any_input" then
+        self:wait_for_any_input_input()
+    end
 end
 
 function MainLayer:keyreleased(key, scancode)
     return
 end
 
+function MainLayer:mousepressed(x, y, button, istouch, presses)
+    log(lume.serialize(self.mode_queue))
+    local current_mode = lume.first(self.mode_queue)
+    if current_mode == "wait_for_text" then
+        self:wait_for_text_input()
+    elseif current_mode == "wait_for_any_input" then
+        self:wait_for_any_input_input()
+    elseif current_mode == "planning" then
+        self:pop_current_mode()
+    end
+end
+
 -- GAME LOGIC
+
+function MainLayer:wait_for_text_input()
+    self.currently_shown_length = #self.textbox_string
+end
+
+function MainLayer:wait_for_any_input_input()
+    self:pop_current_mode()
+end
+
+function MainLayer:start_of_new_month(y, m)
+    -- return mode queue to a predictable state to avoid bugs distributed across codebase
+    self.currently_shown_length = 0
+    self.textbox_string = lume.format("It is now the first day of Year {1} Month {2}!", { y, m })
+    self.mode_queue = { "wait_for_text", "wait_for_any_input", "planning", "event_loop" }
+end
+
+function MainLayer:set_textbox_string(str)
+    self.currently_shown_length = 0
+    self.textbox_string = str
+    local prepend_modes = { "wait_for_text", "wait_for_any_input" }
+    self.mode_queue = lume.concat(prepend_modes, self.mode_queue)
+end
+
+function MainLayer:pop_current_mode()
+    self.mode_queue = lume.last(self.mode_queue, #self.mode_queue - 1)
+    if self.mode_queue == nil then
+        self.mode_queue = {}
+    end
+end
+
+function MainLayer:append_mode(mode)
+    self.mode_queue = lume.concat(self.mode_queue, { mode })
+end
 
 -- SAVE DATA
 function MainLayer:load_state()

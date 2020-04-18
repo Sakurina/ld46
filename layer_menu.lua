@@ -4,7 +4,7 @@ function MenuLayer:new()
     MenuLayer.super.new(self)
     self.layer_name = "MenuLayer"
     self.selected_index = 1
-    self.items = {"Play", "Controls", "Quit" }
+    self.items = { "Play", "Controls", "Quit" }
 end
 
 -- CALLBACKS

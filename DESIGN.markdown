@@ -52,6 +52,13 @@ If you are a rando reading this, there will probably be spoilers below, so play 
     * Decision Popup: Lets you pick what decisions you want
   * Event Popup: Shows a line of dialogue tied to whatever the day's event is and impacts on stats
 
+# Main Layer UI Modes
+
+* **wait_for_text**
+* **wait_for_any_input**
+* **planning**
+* **event_loop**
+
 # Scenario
 
 Coming soon.

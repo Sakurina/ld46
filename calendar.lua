@@ -3,6 +3,10 @@ Calendar = Object:extend()
 function Calendar:new(year, month)
     self.year = year
     self.month = month
+    self.current_day = 1
+    self.started = false
+    self.complete = false
+
     local daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
     local daysInYear = lume.reduce(daysInMonth, function(a,b) return a + b end)
     local daysInYearUntilNow = lume.reduce(lume.slice(daysInMonth, 1, month - 1), function(a,b) return a + b end, 0)
@@ -29,4 +33,22 @@ function Calendar:set_week_event(week_num, event)
     lume.each(daysInWeek, function(day)
         self.days[day]:set_daily_event(event)
     end)
+end
+
+function Calendar:next_day()
+    if self.started == false then
+        self.started = true
+    elseif self.current_day == lume.count(self.days) then
+        self.complete = true
+    else
+        self.current_day = self.current_day + 1
+    end
+end
+
+function Calendar:daily_event_needs_handling_today()
+    return self.days[self.current_day]:daily_event_needs_handling()
+end
+
+function Calendar:todays_daily_event()
+    return self.days[self.current_day].daily_event
 end
