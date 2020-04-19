@@ -21,7 +21,25 @@ constants = {
     unit_menu_height_per_item = 56,
 
     default_luck_value = 0.1,
-    default_buffed_luck_delta = 0.4
+    default_buffed_luck_delta = 0.4,
+    
+    stat_caps = {
+        money = 10000,
+
+        str = 350,
+        int = 350,
+        cha = 350,
+        dex = 350,
+        morality = 350,
+        trust = 350,
+        stress = 75,
+
+        business = 350,
+        combat = 350,
+        research = 350,
+        cooking = 350,
+        alchemy = 350
+    }
 }
 
 constants.system_txt_color = constants.db16_col16

@@ -17,7 +17,7 @@ default_game_state = {
         combat = 0,
         research = 0,
         cooking = 0,
-        robotics = 0
+        alchemy = 0
     },
     lifestyle_choices = {
 

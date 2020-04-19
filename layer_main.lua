@@ -152,7 +152,7 @@ function MainLayer:spawn_lifestyle_layer()
 end
 
 function MainLayer:spawn_stats_layer()
-    layer_manager:prepend(StatsLayer())
+    layer_manager:prepend(StatsLayer(self.game_state.stats))
 end
 
 function MainLayer:start_of_new_month(y, m)
@@ -187,6 +187,11 @@ function MainLayer:apply_stat_growths(state, stat_growths)
         local target_stat = sg.impacted_stat
         local original_value = state.stats[target_stat]
         state.stats[target_stat] = original_value + sg.outcome
+        if state.stats[target_stat] > constants.stat_caps[target_stat] then
+            state.stats[target_stat] = constants.stat_caps[target_stat]
+        elseif target_stat ~= "money" and state.stats[target_stat] < 0 then
+            state.stats[target_stat] = 0
+        end
     end)
 end
 
