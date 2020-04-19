@@ -12,7 +12,7 @@ function MainLayer:new()
     self.mode_queue = {"wait_for_text", "wait_for_any_input", "planning", "event_loop"}
 
     -- dialogue state
-    self.textbox_string = "Theoretically, this text should word wrap and it shouldn't look weird."
+    self.textbox_string = "Schedule some activities for the month and then press the checkmark button."
     self.currently_shown_length = 0
 
     -- background and portrait
