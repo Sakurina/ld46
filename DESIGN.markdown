@@ -104,7 +104,7 @@ If you are a rando reading this, there will probably be spoilers below, so play 
     * Sickness and Health
     * Help Pt2
   * Year 6:
-    * Mugged
+    * Defending MC
     * Goodbye
 
 * **Possible Occupation Endings**
