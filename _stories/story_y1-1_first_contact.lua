@@ -27,8 +27,8 @@ function FirstContactStory:new()
 	"Sorry, computer but you’ll have to wait.",
 	"*BANG BANG BANG*",
 	"{player}: \"Alright, alright! I’m coming!\"",
-	"I haphazardly swing the door open."
-	"{player}: \"Yes, can I he—\"",
+	"I haphazardly swing the door open.",
+	"{player}: \"Yes, can I he--\"",
 	"My words cut short as my gaze is drawn downward… onto..",
 	"#portrait gfx/portrait_egg.png",
 	"{player}: \"..an egg?\"",
@@ -92,10 +92,10 @@ function FirstContactStory:new()
 	"..",
 	"...!!!...",
 	"..is this a joke..",
-	"\"Outer Federation\" who???"
+	"\"Outer Federation\" who???",
 	"..even after all our technological advancement we’ve never been contacted any \"Outer Federation\".",
 	"Hell, we still haven't even confirmed the existence of ANY aliens to date.",
-	"But the egg device on my front step sure didn't look like anything I've seen before.."
+	"But the egg device on my front step sure didn't look like anything I've seen before..",
 	"I look back at the figure in my doorway-- the girl still seems to be fidgeting with her hands behind her back.",
 	"..is that the GIVER?",
 	"*BEEP*",
