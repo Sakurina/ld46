@@ -5,6 +5,8 @@ function MenuLayer:new()
     self.layer_name = "MenuLayer"
     self.selected_index = 1
     self.items = { "Play", "Controls", "Quit" }
+    self.logo = love.graphics.newImage("gfx/title.png")
+
 end
 
 -- CALLBACKS
@@ -13,17 +15,28 @@ function MenuLayer:draw()
     local bgc = constants.dark_bg_color
     local em = constants.emphasis_color
     local deem = constants.deemphasis_color
-
+    local win_w = love.graphics.getWidth()
+    local win_h = love.graphics.getHeight()
     love.graphics.setFont(constants.big_font)
     love.graphics.setColor(bgc.r, bgc.g, bgc.b, 1.0)
-    love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+    love.graphics.rectangle('fill', 0, 0, win_w, win_h)
+
+
+    local logo_w, logo_h = self.logo:getPixelDimensions()
+    logo_w = logo_w * 3
+    logo_h = logo_h * 3
+    local logo_x = (win_w - logo_w) / 2
+    local logo_y = (win_h - logo_h) / 2 - 150
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.draw(self.logo, logo_x, logo_y, 0, 3)
+
     for i = 1, #self.items do
         if i == self.selected_index then
             love.graphics.setColor(em.r, em.g, em.b, 1.0)
         else
             love.graphics.setColor(deem.r, deem.g, deem.b, 1.0)
         end
-        local y = 223 + i * constants.unit_menu_height_per_item
+        local y = 223 + 50 + i * constants.unit_menu_height_per_item
         love.graphics.print(self.items[i], 543, y)
     end
 end
