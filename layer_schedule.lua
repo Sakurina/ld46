@@ -16,9 +16,11 @@ function ScheduleLayer:new(calendar)
         constants.study_event.id 
     }
     self.work_events = { 
+        constants.acct_event.id,
         constants.black_event.id, 
         constants.delivery_event.id, 
-        constants.lab_event.id 
+        constants.lab_event.id,
+        constants.resto_event.id
     }
     self.rest_events = { 
         constants.nap_event.id, 
@@ -37,7 +39,9 @@ function ScheduleLayer:new(calendar)
     self.icons[constants.study_event.id] = love.graphics.newImage(constants.study_event.icon)
     self.icons[constants.cook_event.id] = love.graphics.newImage(constants.cook_event.icon)
     self.icons[constants.nap_event.id] = love.graphics.newImage(constants.nap_event.icon)
-    self.icons[constants.vacation_event.id] = love.graphics.newImage(constants.vacation_event.icon)   
+    self.icons[constants.vacation_event.id] = love.graphics.newImage(constants.vacation_event.icon) 
+    self.icons[constants.acct_event.id] = love.graphics.newImage(constants.acct_event.icon)
+    self.icons[constants.resto_event.id] = love.graphics.newImage(constants.resto_event.icon)  
 
     self.costs = {}
     self.costs[constants.gym_event.id] = lume.format("-${1}/day", { 0 - constants.gym_event.cost_per_day })
@@ -48,6 +52,8 @@ function ScheduleLayer:new(calendar)
     self.costs[constants.black_event.id] = lume.format("+${1}~${2}/day", { constants.black_event.income_per_day_regular, constants.black_event.income_per_day_lucky })
     self.costs[constants.delivery_event.id] = lume.format("+${1}~${2}/day", { constants.delivery_event.income_per_day_regular, constants.delivery_event.income_per_day_lucky })
     self.costs[constants.lab_event.id] = lume.format("+${1}~${2}/day", { constants.lab_event.income_per_day_regular, constants.lab_event.income_per_day_lucky })
+    self.costs[constants.acct_event.id] = lume.format("+${1}~${2}/day", { constants.acct_event.income_per_day_regular, constants.acct_event.income_per_day_lucky })
+    self.costs[constants.resto_event.id] = lume.format("+${1}/day", { constants.resto_event.income_per_day_regular, constants.resto_event.income_per_day_lucky })
 
     self.cached_week_row_rects = {}
     self.cached_weekday_col_rects = {}
@@ -226,9 +232,6 @@ function ScheduleLayer:draw(dt)
 
         index = index + 1
     end)
-
-    --love.graphics.setColor(txt.r, txt.g, txt.b, 1)
-    --love.graphics.print(lume.format("Week {1}", { self.current_week }), act_x, cal_y)
 end
 
 function ScheduleLayer:keypressed(key, scancode, isrepeat)
@@ -339,5 +342,9 @@ function ScheduleLayer:event_for_id(id)
         return NapEvent()
     elseif id == constants.vacation_event.id then
         return VacationEvent()
+    elseif id == constants.acct_event.id then
+        return AccountingEvent()
+    elseif id == constants.resto_event.id then
+        return RestaurantEvent()
     end
 end

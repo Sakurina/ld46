@@ -72,6 +72,25 @@ constants = {
         research_delta = 5
     },
 
+    acct_event = {
+        id = "Accounting",
+        icon = "gfx/icon_accounting.png",
+        income_per_day_regular = 9,
+        income_per_day_lucky = 13,
+        business_delta = 5,
+        stress_delta = 5,
+        int_delta = -3
+    },
+
+    resto_event = {
+        id = "Restaurant",
+        icon = "gfx/icon_restaurant.png",
+        income_per_day_regular = 9,
+        income_per_day_lucky = 13,
+        cooking_delta = 5,
+        stress_delta = 5
+    },
+
     -- ACTIVITIES
 
     gym_event = {
