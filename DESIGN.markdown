@@ -87,12 +87,26 @@ If you are a rando reading this, there will probably be spoilers below, so play 
   * aLiVE
   * Princess Maker VII Remake
 * **Possible Events**
-  * YAKINIKU
-  * RAMEN
-  * BORGAR
-  * Shopping
-  * Walk through City
-  * Cyberpunk Mugging
+  * 12 scripted events total, 2 per year
+  * Year 1:
+    * First Contact
+    * City Intro
+  * Year 2:
+    * Upgrading from TAKER
+    * Headpats
+  * Year 3:
+    * Help Pt1
+    * Midway Checkup
+  * Year 4:
+    * First Meeting
+    * Hamburger
+  * Year 5:
+    * Sickness and Health
+    * Help Pt2
+  * Year 6:
+    * Mugged
+    * Goodbye
+
 * **Possible Occupation Endings**
   * Chef
       * high cha, high dex
