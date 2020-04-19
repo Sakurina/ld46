@@ -1,6 +1,7 @@
 constants = {
     big_font = love.graphics.newFont("deps/m5x7.ttf", 72),
-
+    smol_font = love.graphics.newFont("deps/m5x7.ttf", 36),
+    
     db16_col1 = { r = 20/255, g = 12/255, b = 28/255 },
     db16_col2 = { r = 68/255, g = 36/255, b = 52/255 },
     db16_col3 = { r = 48/255, g = 52/255, b = 109/255 },
@@ -44,6 +45,8 @@ constants = {
     -- JOBS
 
     black_event = {
+        id = "Black Market",
+        icon = "gfx/icon_blackmarket.png",
         income_per_day_regular = 15,
         income_per_day_lucky = 30,
         morality_delta = -5,
@@ -52,6 +55,8 @@ constants = {
     },
 
     delivery_event = {
+        id = "Delivery",
+        icon = "gfx/icon_delivery.png",
         income_per_day_regular = 7,
         income_per_day_lucky = 9,
         stress_delta = 4,
@@ -59,6 +64,8 @@ constants = {
     },
 
     lab_event = {
+        id = "Lab Work",
+        icon = "gfx/icon_lab.png",
         income_per_day_regular = 9,
         income_per_day_lucky = 13,
         int_delta = 5,
@@ -68,6 +75,8 @@ constants = {
     -- ACTIVITIES
 
     gym_event = {
+        id = "Gym",
+        icon = "gfx/icon_gym.png",
         cost_per_day = -3,
         combat_delta_regular = 5,
         combat_delta_lucky = 7,
@@ -76,24 +85,32 @@ constants = {
     },
 
     karaoke_event = {
+        id = "Karaoke",
+        icon = "gfx/icon_karaoke.png",
         cost_per_day = -3,
         cha_delta_regular = 5,
         cha_delta_lucky = 7
     },
 
     library_event = {
+        id = "Philosophy",
+        icon = "gfx/icon_philosophy.png",
         cost_per_day = -1,
         morality_delta_regular = 5,
         morality_delta_lucky = 7
     },
 
     study_event = {
+        id = "Study",
+        icon = "gfx/icon_study.png",
         cost_per_day = -5,
         int_delta_regular = 5,
         int_delta_lucky = 7
     },
 
     cook_event = {
+        id = "Culinary Training",
+        icon = "gfx/icon_culinary.png",
         dex_delta_regular = 3,
         dex_delta_lucky = 5,
         cooking_delta_regular = 3,
@@ -103,11 +120,15 @@ constants = {
     -- REST
 
     nap_event = {
+        id = "Short Rest",
+        icon = "gfx/icon_shortrest.png",
         stress_delta_regular = -3,
         stress_delta_lucky = -5
     },
     
     vacation_event = {
+        id = "Vacation",
+        icon = "gfx/icon_vacation.png",
         cost_per_day = -9,
         stress_delta_regular = -5,
         stress_delta_lucky = -7

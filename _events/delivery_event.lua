@@ -3,7 +3,7 @@ DeliveryEvent = DailyEvent:extend()
 function DeliveryEvent:new()
     LabEvent.super.new(self)
     
-    self.event_name = "Delivery"
+    self.event_name = constants.delivery_event.id
     self.event_success_text = "{1} delivered some pizzas today."
     self.event_critical_text = "{1} delivered some pizzas today and tips were better than usual."
     self.stat_growths = {

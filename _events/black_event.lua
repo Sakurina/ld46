@@ -3,7 +3,7 @@ BlackEvent = DailyEvent:extend()
 function BlackEvent:new()
     BlackEvent.super.new(self)
     
-    self.event_name = "Blk Market"
+    self.event_name = constants.black_event.id
     self.event_success_text = "{1} attended to some shady business at the black market today. It was quite profitable."
     self.event_critical_text = "{1} came home from the black market with twice as much cash as usual... who knows what went down...?"
     self.stat_growths = {

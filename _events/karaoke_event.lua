@@ -3,7 +3,7 @@ KaraokeEvent = DailyEvent:extend()
 function KaraokeEvent:new()
     KaraokeEvent.super.new(self)
     
-    self.event_name = "Karaoke"
+    self.event_name = constants.karaoke_event.id
     self.event_success_text = "{1} went to karaoke with friends today."
     self.event_critical_text = "{1} sang all her favorite artist's top singles at karaoke today. Might as well have fun, sing every single one!"
     self.stat_growths = {

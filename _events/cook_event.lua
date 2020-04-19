@@ -3,7 +3,7 @@ CookEvent = DailyEvent:extend()
 function CookEvent:new()
     CookEvent.super.new(self)
 
-    self.event_name = "Cook"
+    self.event_name = constants.cook_event.id
     self.event_success_text = "{1} cooked some food."
     self.event_critical_text = "{1} cooked food that smelled so yummy, the neighbors came over to see what it was."
     self.stat_growths = {
