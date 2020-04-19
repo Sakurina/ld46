@@ -105,6 +105,8 @@ function ScheduleLayer:draw(dt)
     -- column B "activity choices" / 1/3
     local act_x = cal_x + cal_w + 30
     local index = 1
+    local this_week = lume.filter(self.calendar.days, function(d) return d.week_num == self.current_week end)
+
     lume.each(self.events, function(id)
         if self.cached_event_rects[id] == nil then
             self.cached_event_rects[id] = {
@@ -115,9 +117,17 @@ function ScheduleLayer:draw(dt)
             }
         end
         local rect = self.cached_event_rects[id]
+        local is_current_selection = #this_week > 0 and this_week[1].daily_event ~= nil and this_week[1].daily_event.event_name == id
+        if is_current_selection then
+            love.graphics.setColor(em.r, em.g, em.b, 1)
+        else
+            love.graphics.setColor(txt.r, txt.g, txt.b, 1)
+        end
         love.graphics.printf(id, rect.x, rect.y, rect.w, "center")
         index = index + 1
     end)
+
+    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     love.graphics.print(lume.format("Week {1}", { self.current_week }), act_x, cal_y)
 end
 
