@@ -39,6 +39,10 @@ function MainLayer:new()
     self.schedule_rect = { x = 1205 + 12, y = 30 + 45 + 12, w = 45, h = 45 }
     self.go_icon = love.graphics.newImage("gfx/icon_go.png")
     self.go_rect = { x = 1205 + 12, y = 30 + 45 + 12 + 45 + 12, w = 45 , h = 45 }
+    self.blinky_icon = love.graphics.newImage("gfx/icon_next.png")
+    self.blinky_rect = { x = 1280 - 30 - 15, y = 720 - 30 - 30, w = 15, h = 30 }
+    self.show_blinker = true
+    self.blinky_counter = 0
 end
 
 -- CALLBACKS
@@ -124,6 +128,11 @@ function MainLayer:draw()
     love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     local chopped = string.sub(self.textbox_string, 1, self.currently_shown_length)
     love.graphics.printf(chopped, txt_x, txt_y, txt_w, "left")
+    if lume.first(self.mode_queue) == "wait_for_any_input" and self.show_blinker then
+        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(self.blinky_icon, self.blinky_rect.x, self.blinky_rect.y, 0, 3)
+    end
+
     love.graphics.setScissor()
 end
 
@@ -133,6 +142,17 @@ function MainLayer:update(dt)
         self.currently_shown_length = self.currently_shown_length + 1
     elseif lume.first(self.mode_queue) == "wait_for_text" then
         self:pop_current_mode()
+    elseif lume.first(self.mode_queue) == "wait_for_any_input" then
+        if self.blinky_counter == 20 then
+            self.blinky_counter = 0
+            if self.show_blinker then
+                self.show_blinker = false
+            else
+                self.show_blinker = true
+            end
+        else
+            self.blinky_counter = self.blinky_counter + 1
+        end
     elseif lume.first(self.mode_queue) == "planning" then
         return
     elseif lume.first(self.mode_queue) == "story" then
@@ -283,7 +303,7 @@ end
 function MainLayer:start_of_new_month(y, m)
     -- return mode queue to a predictable state to avoid bugs distributed across codebase
     self.currently_shown_length = 0
-    self.textbox_string = lume.format("It is now the first day of Year {1} Month {2}!", { y, m })
+    self.textbox_string = "It's the first of the month! Time to plan some more activities!"
     self.mode_queue = { "wait_for_text", "wait_for_any_input", "planning", "event_loop" }
 end
 

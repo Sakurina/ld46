@@ -55,6 +55,9 @@ function ScheduleLayer:new(calendar)
     self.costs[constants.acct_event.id] = lume.format("+${1}~${2}/day", { constants.acct_event.income_per_day_regular, constants.acct_event.income_per_day_lucky })
     self.costs[constants.resto_event.id] = lume.format("+${1}/day", { constants.resto_event.income_per_day_regular, constants.resto_event.income_per_day_lucky })
 
+    self.close_icon = love.graphics.newImage("gfx/icon_x.png")
+    self.close_rect = { x = 1175, y = 615, w = 45, h = 45 }
+
     self.cached_week_row_rects = {}
     self.cached_weekday_col_rects = {}
     self.cached_weekday_rects = {}
@@ -161,8 +164,6 @@ function ScheduleLayer:draw(dt)
     love.graphics.setFont(constants.big_font)
 
     -- column B "activity choices" / 1/3
-
-
     local act_x = cal_x + cal_w + 30
     local act_txt_x = act_x + 45 + 15
 
@@ -232,6 +233,9 @@ function ScheduleLayer:draw(dt)
 
         index = index + 1
     end)
+
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.draw(self.close_icon, self.close_rect.x, self.close_rect.y, 0, 3)
 end
 
 function ScheduleLayer:keypressed(key, scancode, isrepeat)
@@ -292,6 +296,15 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
             self:switch_visible_set(id)
             return
         end
+    end
+
+    local close_left_x = self.close_rect.x
+    local close_right_x = self.close_rect.x + self.close_rect.w
+    local close_top_y = self.close_rect.y
+    local close_bottom_y = self.close_rect.y + self.close_rect.h
+    if x >= close_left_x and x <= close_right_x and y >= close_top_y and y <= close_bottom_y then
+        layer_manager:remove_first()
+        return
     end
 end
 
