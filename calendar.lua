@@ -20,11 +20,16 @@ function Calendar:new(year, month)
             week_num = week_num + 1
         end
         thisDay.week_num = week_num
-        if month == 2 and i == 1 then
-            thisDay.story = AlwaysTestStory()
-        elseif month == 3 and i == 15 then
-            thisDay.story = PreconTestStory()
+
+        if year == 13 and month == 1 and i == 1 then
+            thisDay.story = UpgradeStory()
         end
+        --if month == 2 and i == 1 then
+        --    thisDay.story = AlwaysTestStory()
+        --elseif month == 3 and i == 15 then
+        --    thisDay.story = PreconTestStory()
+        --end
+
         self.days[i] = thisDay
     end
 end

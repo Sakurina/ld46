@@ -23,3 +23,7 @@ function log(msg)
         lovebird.print(msg)
     end
 end
+
+function string_begins_with(str, start)
+    return string.sub(str, 1, string.len(start)) == start
+end
