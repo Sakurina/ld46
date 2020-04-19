@@ -38,7 +38,7 @@ function DailyEvent:determine_outcome(lifestyle_choices)
 
     -- find out if at least one was critical...
     local criticals = lume.any(self.stat_growths, function(sg)
-        return sg.outcome == sg.critical_delta
+        return sg.base_delta ~= sg.critical_delta and sg.outcome == sg.critical_delta
     end)
     
     -- ...and set the outcome text to the right string
