@@ -32,13 +32,85 @@ constants = {
         dex = 350,
         morality = 350,
         trust = 350,
-        stress = 75,
+        stress = 100,
 
         business = 350,
         combat = 350,
         research = 350,
         cooking = 350,
         alchemy = 350
+    },
+
+    -- JOBS
+
+    black_event = {
+        income_per_day_regular = 15,
+        income_per_day_lucky = 30,
+        morality_delta = -5,
+        stress_delta = 5,
+        combat_delta = 5
+    },
+
+    delivery_event = {
+        income_per_day_regular = 7,
+        income_per_day_lucky = 9,
+        stress_delta = 4,
+        dex_delta = 5
+    },
+
+    lab_event = {
+        income_per_day_regular = 9,
+        income_per_day_lucky = 13,
+        int_delta = 5,
+        research_delta = 5
+    },
+
+    -- ACTIVITIES
+
+    gym_event = {
+        cost_per_day = -3,
+        combat_delta_regular = 5,
+        combat_delta_lucky = 7,
+        str_delta_regular = 5,
+        str_delta_lucky = 7
+    },
+
+    karaoke_event = {
+        cost_per_day = -3,
+        cha_delta_regular = 5,
+        cha_delta_lucky = 7
+    },
+
+    library_event = {
+        cost_per_day = -1,
+        morality_delta_regular = 5,
+        morality_delta_lucky = 7
+    },
+
+    study_event = {
+        cost_per_day = -5,
+        int_delta_regular = 5,
+        int_delta_lucky = 7
+    },
+
+    cook_event = {
+        dex_delta_regular = 3,
+        dex_delta_lucky = 5,
+        cooking_delta_regular = 3,
+        cooking_delta_lucky = 5
+    },
+
+    -- REST
+
+    nap_event = {
+        stress_delta_regular = -3,
+        stress_delta_lucky = -5
+    },
+    
+    vacation_event = {
+        cost_per_day = -9,
+        stress_delta_regular = -5,
+        stress_delta_lucky = -7
     }
 }
 

@@ -22,7 +22,7 @@ function StatsLayer:draw(dt)
     local bar_height = 60
 
     local bar_empty_col = constants.db16_col4
-    local bar_full_col = constants.db16_col14
+    local bar_full_col = constants.db16_col7
     local bar_label_col = constants.system_txt_color
 
     local col1_x = txt_x + 30 + 15

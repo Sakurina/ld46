@@ -7,7 +7,8 @@ function GymEvent:new()
     self.event_success_text = "{1} went to the gym today."
     self.event_critical_text = "{1} went to the gym today and lifted more than she ever could before!"
     self.stat_growths = {
-        StatGrowth("money", -2, -2),
-        StatGrowth("combat", 3, 4)
+        StatGrowth("money", constants.gym_event.cost_per_day, constants.gym_event.cost_per_day),
+        StatGrowth("str", constants.gym_event.str_delta_regular, constants.gym_event.str_delta_lucky),
+        StatGrowth("combat", constants.gym_event.combat_delta_regular, constants.gym_event.combat_delta_lucky)
     }
 end

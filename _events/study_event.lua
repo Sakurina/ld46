@@ -7,7 +7,7 @@ function StudyEvent:new()
     self.event_success_text = "{1} studied today."
     self.event_critical_text = "{1} studied and finally understood something she's been strugging with!"
     self.stat_growths = {
-        StatGrowth("money", -5, -5),
-        StatGrowth("int", 2, 3)
+        StatGrowth("money", constants.study_event.cost_per_day, constants.study_event.cost_per_day),
+        StatGrowth("int", constants.study_event.int_delta_regular, constants.study_event.int_delta_lucky)
     }
 end
