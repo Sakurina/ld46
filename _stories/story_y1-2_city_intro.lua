@@ -36,7 +36,7 @@ function CityIntroStory:new()
         "The people that live here have been deemed sub-optimal by the government and it shows in its architecture.",
         "Much less care is given to the machinery here and it's not uncommon to find filth in the streets.",
         "This ice-cream shop must be a royal sympathizer, judging by the crest.",
-        "When the Royal Family and Parliament was ousted by the neo-government, there was a large opposition to the new societal classifications.",
+        "When the Royal Family and Parliament were ousted by the neo-government, there was a large opposition to the new societal classifications.",
         "Things seemed to be better for these people under the old system--I can tell you now the current system sure as hell is doing them no favors.",
         "{player}: We can't stay here for too long.",
         "{girl}: ...",
