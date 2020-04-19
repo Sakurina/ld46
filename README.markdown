@@ -14,6 +14,7 @@ This was developed for the [Ludum Dare 46][ld46] game jam taking place from Apri
 * [json.lua][jsonlua] for data serialization/deserialization.
 * [m5x7][m5x7] as the UI font.
 * [patchy][patchy] for drawing 9-patch text boxes.
+* The [DB16][db16] color palette.
 
 [pm]: https://en.wikipedia.org/wiki/Princess_Maker
 [ld46]: https://ldjam.com
@@ -28,3 +29,4 @@ This was developed for the [Ludum Dare 46][ld46] game jam taking place from Apri
 [tesound]: https://love2d.org/wiki/TEsound
 [m5x7]: https://managore.itch.io/m5x7
 [patchy]: https://github.com/excessive/patchy
+[db16]: http://pixeljoint.com/forum/forum_posts.asp?TID=12795

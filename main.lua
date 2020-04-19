@@ -60,6 +60,7 @@ function love.load()
     math.random()
     math.random()
     math.random()
+    love.filesystem.setIdentity("machine_learning_ld46")
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.keyboard.setKeyRepeat(true)
     layer_manager = LayerManager()
@@ -78,6 +79,9 @@ function love.update(dt)
 end
 
 function love.keypressed(key, scancode, isrepeat)
+    if key == "`" then
+        love.graphics.captureScreenshot(os.time() .. ".png")
+    end
     layer_manager:keypressed(key, scancode, isrepeat)
 end
 
