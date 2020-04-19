@@ -32,6 +32,13 @@ function MainLayer:new()
     self.icons[constants.vacation_event.id] = love.graphics.newImage(constants.vacation_event.icon) 
     self.icons[constants.acct_event.id] = love.graphics.newImage(constants.acct_event.icon)
     self.icons[constants.resto_event.id] = love.graphics.newImage(constants.resto_event.icon)
+
+    self.stats_icon = love.graphics.newImage("gfx/icon_stats.png")
+    self.stats_rect = { x = 1205 + 12, y = 30, w = 45, h = 45 }
+    self.schedule_icon = love.graphics.newImage("gfx/icon_schedule.png")
+    self.schedule_rect = { x = 1205 + 12, y = 30 + 45 + 12, w = 45, h = 45 }
+    self.go_icon = love.graphics.newImage("gfx/icon_go.png")
+    self.go_rect = { x = 1205 + 12, y = 30 + 45 + 12 + 45 + 12, w = 45 , h = 45 }
 end
 
 -- CALLBACKS
@@ -63,7 +70,7 @@ function MainLayer:draw()
     love.graphics.scale(box_scale, box_scale)
     love.graphics.setColor(1, 1, 1, 1)
     local cal_x, cal_y, cal_w, cal_h = self.box_patch:draw(0, 0, 240 / box_scale, 219 / box_scale) -- calendar
-    local dec_x, dec_y, dec_w, dec_h = self.box_patch:draw(1040 / box_scale, 0, 240 / box_scale, 240 / box_scale) -- decisions
+    local dec_x, dec_y, dec_w, dec_h = self.box_patch:draw(1199 / box_scale, 0, 81 / box_scale, 219 / box_scale) -- menu
     local txt_x, txt_y, txt_w, txt_h = self.box_patch:draw(0, 480 / box_scale, 1280 / box_scale, 240 / box_scale) -- textbox
     love.graphics.pop()
 
@@ -81,6 +88,12 @@ function MainLayer:draw()
     txt_y = txt_y * box_scale + box_scale * 6
     txt_w = txt_w * box_scale - (box_scale * 12) * 2
     txt_h = txt_h * box_scale - (box_scale * 6) * 2
+
+    if lume.first(self.mode_queue) == "planning" then
+        love.graphics.draw(self.stats_icon, self.stats_rect.x, self.stats_rect.y, 0, 3)
+        love.graphics.draw(self.schedule_icon, self.schedule_rect.x, self.schedule_rect.y, 0, 3)
+        love.graphics.draw(self.go_icon, self.go_rect.x, self.go_rect.y, 0, 3)
+    end
 
     local txt = constants.system_txt_color
     local deem = constants.deemphasis_color
@@ -213,7 +226,35 @@ function MainLayer:mousepressed(x, y, button, istouch, presses)
     elseif current_mode == "wait_for_any_input" then
         self:wait_for_any_input_input()
     elseif current_mode == "planning" then
-        self:pop_current_mode()
+        local stats_left_x = self.stats_rect.x
+        local stats_right_x = self.stats_rect.x + self.stats_rect.w
+        local stats_top_y = self.stats_rect.y
+        local stats_bottom_y = self.stats_rect.y + self.stats_rect.h
+
+        if x >= stats_left_x and x <= stats_right_x and y >= stats_top_y and y <= stats_bottom_y then
+            self:spawn_stats_layer()
+            return
+        end
+
+        local sched_left_x = self.schedule_rect.x
+        local sched_right_x = self.schedule_rect.x + self.schedule_rect.w
+        local sched_top_y = self.schedule_rect.y
+        local sched_bottom_y = self.schedule_rect.y + self.schedule_rect.h
+
+        if x >= sched_left_x and x <= sched_right_x and y >= sched_top_y and y <= sched_bottom_y then
+            self:spawn_schedule_layer()
+            return
+        end
+
+        local go_left_x = self.go_rect.x
+        local go_right_x = self.go_rect.x + self.go_rect.w
+        local go_top_y = self.go_rect.y
+        local go_bottom_y = self.go_rect.y + self.go_rect.h
+
+        if x >= go_left_x and x <= go_right_x and y >= go_top_y and y <= go_bottom_y then
+            self:pop_current_mode()
+            return
+        end
     end
 end
 
