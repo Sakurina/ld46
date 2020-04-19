@@ -8,7 +8,7 @@ function MainLayer:new()
     self.box_patch = patchy.load("gfx/textbox.9.png")
 
     -- calendar
-    self.calendar = Calendar(12, 1)
+    self.calendar = Calendar(self.game_state.current_year, self.game_state.current_month)
     self.mode_queue = {"wait_for_text", "wait_for_any_input", "planning", "event_loop"}
 
     -- dialogue state
@@ -18,6 +18,20 @@ function MainLayer:new()
     -- background and portrait
     self.background = nil
     self.portrait = love.graphics.newImage("gfx/portrait_egg.png")
+
+    self.icons = {}
+    self.icons[constants.black_event.id] = love.graphics.newImage(constants.black_event.icon)
+    self.icons[constants.delivery_event.id] = love.graphics.newImage(constants.delivery_event.icon)
+    self.icons[constants.lab_event.id] = love.graphics.newImage(constants.lab_event.icon)
+    self.icons[constants.gym_event.id] = love.graphics.newImage(constants.gym_event.icon)
+    self.icons[constants.karaoke_event.id] = love.graphics.newImage(constants.karaoke_event.icon)
+    self.icons[constants.library_event.id] = love.graphics.newImage(constants.library_event.icon)
+    self.icons[constants.study_event.id] = love.graphics.newImage(constants.study_event.icon)
+    self.icons[constants.cook_event.id] = love.graphics.newImage(constants.cook_event.icon)
+    self.icons[constants.nap_event.id] = love.graphics.newImage(constants.nap_event.icon)
+    self.icons[constants.vacation_event.id] = love.graphics.newImage(constants.vacation_event.icon) 
+    self.icons[constants.acct_event.id] = love.graphics.newImage(constants.acct_event.icon)
+    self.icons[constants.resto_event.id] = love.graphics.newImage(constants.resto_event.icon)
 end
 
 -- CALLBACKS
@@ -48,15 +62,15 @@ function MainLayer:draw()
     love.graphics.push()
     love.graphics.scale(box_scale, box_scale)
     love.graphics.setColor(1, 1, 1, 1)
-    local cal_x, cal_y, cal_w, cal_h = self.box_patch:draw(0, 0, 240 / box_scale, 240 / box_scale) -- calendar
+    local cal_x, cal_y, cal_w, cal_h = self.box_patch:draw(0, 0, 240 / box_scale, 219 / box_scale) -- calendar
     local dec_x, dec_y, dec_w, dec_h = self.box_patch:draw(1040 / box_scale, 0, 240 / box_scale, 240 / box_scale) -- decisions
     local txt_x, txt_y, txt_w, txt_h = self.box_patch:draw(0, 480 / box_scale, 1280 / box_scale, 240 / box_scale) -- textbox
     love.graphics.pop()
 
-    cal_x = cal_x * box_scale
-    cal_y = cal_y * box_scale
-    cal_w = cal_w * box_scale
-    cal_h = cal_h * box_scale
+    cal_x = cal_x * box_scale + box_scale * 12
+    cal_y = cal_y * box_scale + box_scale * 6
+    cal_w = cal_w * box_scale - (box_scale * 12) * 2
+    cal_h = cal_h * box_scale - (box_scale * 6) * 2
 
     dec_x = dec_x * box_scale
     dec_y = dec_y * box_scale
@@ -65,16 +79,36 @@ function MainLayer:draw()
 
     txt_x = txt_x * box_scale + box_scale * 12
     txt_y = txt_y * box_scale + box_scale * 6
-    txt_w = txt_w * box_scale - box_scale * 12
-    txt_h = txt_h * box_scale - box_scale * 6
+    txt_w = txt_w * box_scale - (box_scale * 12) * 2
+    txt_h = txt_h * box_scale - (box_scale * 6) * 2
 
     local txt = constants.system_txt_color
-    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
+    local deem = constants.deemphasis_color
     -- calendar string
-    local date = lume.format("Y{1} M{2}\nDay {3}", { self.calendar.year, self.calendar.month, self.calendar.current_day })
-    love.graphics.printf(date, cal_x, cal_y, cal_w, "center")
+    local line1 = self.calendar:formatted_week_day()
+    local line2 = self.calendar:formatted_date()
+    local line3 = lume.format("{1}", { self.calendar.year })
+    local line1_y = cal_y
+    local line2_y = cal_y + constants.unit_menu_height_per_item
+    local line3_y = line2_y + constants.unit_menu_height_per_item
+    love.graphics.setColor(deem.r, deem.g, deem.b, 1)
+    love.graphics.printf(line1, cal_x, line1_y, cal_w, "left")
+    love.graphics.printf(line3, cal_x, line3_y, cal_w, "left")
+    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
+    love.graphics.printf(line2, cal_x, line2_y, cal_w, "left")
+    
+    local day = self.calendar.days[self.calendar.current_day]
+    if day.daily_event ~= nil then
+        local icon_x = cal_x + cal_w - 45
+        local icon_y = line3_y + (constants.unit_menu_height_per_item - 45) / 2 + 3
+        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(self.icons[day.daily_event.event_name], icon_x, icon_y, 0, 3, 3)
+    end
+    --local date = lume.format("Y{1} M{2}\nDay {3}", { self.calendar.year, self.calendar.month, self.calendar.current_day })
+    --love.graphics.printf(date, cal_x, cal_y, cal_w, "left")
 
     -- textbox string
+    love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     local chopped = string.sub(self.textbox_string, 1, self.currently_shown_length)
     love.graphics.printf(chopped, txt_x, txt_y, txt_w, "left")
     love.graphics.setScissor()
@@ -213,6 +247,9 @@ function MainLayer:start_of_new_month(y, m)
 end
 
 function MainLayer:set_textbox_string(str)
+    if self.game_state ~= nil then
+        str = lume.format(str, { self.game_state.character_name })
+    end
     self.currently_shown_length = 0
     self.textbox_string = str
     local prepend_modes = { "wait_for_text", "wait_for_any_input" }

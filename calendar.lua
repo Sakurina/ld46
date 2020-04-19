@@ -78,3 +78,16 @@ end
 function Calendar:todays_story_handled()
     self.days[self.current_day]:mark_story_handled()
 end
+
+function Calendar:formatted_week_day()
+    local map = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
+    local day = self.days[self.current_day]
+    return map[day:day_of_week() + 1]
+end
+
+function Calendar:formatted_date()
+    local map = {
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    }
+    return lume.format("{1} {2}", { map[self.month], self.current_day })
+end

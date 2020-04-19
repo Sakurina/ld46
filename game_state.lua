@@ -1,6 +1,6 @@
 default_game_state = {
-    character_name = "",
-    current_year = 12,
+    character_name = "Celestia",
+    current_year = 3014,
     current_month = 1,
     stats = {
         money = 0,
