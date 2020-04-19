@@ -98,7 +98,7 @@ If you are a rando reading this, there will probably be spoilers below, so play 
     * Help Pt1
     * Midway Checkup
   * Year 4:
-    * First Meeting
+    * Alone
     * Hamburger
   * Year 5:
     * Sickness and Health
