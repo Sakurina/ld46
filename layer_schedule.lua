@@ -150,8 +150,6 @@ function ScheduleLayer:keypressed(key, scancode, isrepeat)
 end
 
 function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
-    log(lume.format("[{1}] click at {2}, {3}", { self.layer_name, x, y }))
-
     -- check for collision with a week row
     for week, rect in ipairs(self.cached_week_row_rects)
     do
@@ -160,7 +158,6 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect.y
         local bottom_y = rect.y + rect.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
-            log(lume.format("[{1}] week clicked: {2}", { self.layer_name, week }))
             self.current_week = week
             return
         end
@@ -173,7 +170,6 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect2.y
         local bottom_y = rect2.y + rect2.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
-            log(lume.format("[{1}] event clicked: {2}", { self.layer_name, id }))
             self.calendar:set_week_event(self.current_week, self:event_for_id(id))
             return
         end

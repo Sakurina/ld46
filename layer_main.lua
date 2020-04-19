@@ -72,8 +72,19 @@ function MainLayer:update(dt)
         self:pop_current_mode()
     elseif lume.first(self.mode_queue) == "planning" then
         return
+    elseif lume.first(self.mode_queue) == "story" then
+        local story = self.calendar:todays_story()
+        story:next_line()
+        if story.complete == true then
+            self.calendar:todays_story_handled()
+            self:pop_current_mode()
+        else
+            self:set_textbox_string(story.lines[story.current_line])
+        end
     elseif lume.first(self.mode_queue) == "event_loop" then
-        self.calendar:next_day()
+        if self.calendar:daily_event_needs_handling_today() == false and self.calendar:story_needs_handling_today() == false then
+            self.calendar:next_day()
+        end
 
         if self.calendar.complete == true then
             -- update calendar
@@ -89,18 +100,25 @@ function MainLayer:update(dt)
             self:start_of_new_month(year, month)
         else 
             -- still events to do
-            if self.calendar:daily_event_needs_handling_today() then
+            if self.calendar:story_needs_handling_today() then
+                local story = self.calendar:todays_story()
+                if story:meets_preconditions(self.game_state.stats) then
+                    self.mode_queue = { "story", "event_loop" }
+                else
+                    self.calendar:todays_story_handled()
+                end
+            elseif self.calendar:daily_event_needs_handling_today() then
                 local event = self.calendar:todays_daily_event()
                 event:determine_outcome({}) -- passing lifestyle choices todo
                 self:set_textbox_string(event.outcome_text)
                 self:apply_stat_growths(self.game_state, event.stat_growths)
+                self.calendar:todays_daily_event_handled()
             end
         end
     end
 end
 
 function MainLayer:keypressed(key, scancode, isrepeat)
-    log(lume.serialize(self.mode_queue))
     local current_mode = lume.first(self.mode_queue)
     if current_mode == "wait_for_text" then
         self:wait_for_text_input()
@@ -122,7 +140,6 @@ function MainLayer:keyreleased(key, scancode)
 end
 
 function MainLayer:mousepressed(x, y, button, istouch, presses)
-    log(lume.serialize(self.mode_queue))
     local current_mode = lume.first(self.mode_queue)
     if current_mode == "wait_for_text" then
         self:wait_for_text_input()
@@ -181,8 +198,6 @@ function MainLayer:append_mode(mode)
 end
 
 function MainLayer:apply_stat_growths(state, stat_growths)
-    log(lume.serialize(state.stats))
-    log(lume.serialize(stat_growths))
     lume.each(stat_growths, function(sg)
         local target_stat = sg.impacted_stat
         local original_value = state.stats[target_stat]

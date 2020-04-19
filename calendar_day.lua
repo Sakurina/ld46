@@ -6,8 +6,8 @@ function CalendarDay:new(day, startingOffset, week_num)
     self.week_num = week_num
     self.daily_event = nil
     self.daily_event_handled = false
-    self.special_event = nil
-    self.special_event_handled = false
+    self.story = nil
+    self.story_handled = false
 end
 
 function CalendarDay:day_of_week()
@@ -20,4 +20,20 @@ end
 
 function CalendarDay:daily_event_needs_handling()
     return self.daily_event ~= nil and self.daily_event_handled == false
+end
+
+function CalendarDay:mark_daily_event_handled()
+    self.daily_event_handled = true
+end
+
+function CalendarDay:set_story(story)
+    self.story = story
+end
+
+function CalendarDay:story_needs_handling()
+    return self.story ~= nil and self.story_handled == false
+end
+
+function CalendarDay:mark_story_handled()
+    self.story_handled = true
 end
