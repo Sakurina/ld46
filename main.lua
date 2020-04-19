@@ -83,6 +83,7 @@ end
 function love.keypressed(key, scancode, isrepeat)
     if key == "`" then
         love.graphics.captureScreenshot(os.time() .. ".png")
+        return
     end
     layer_manager:keypressed(key, scancode, isrepeat)
 end

@@ -21,8 +21,8 @@ function Calendar:new(year, month)
         end
         thisDay.week_num = week_num
 
-        if year == 13 and month == 1 and i == 1 then
-            thisDay.story = UpgradeStory()
+        if year == 3014 and month == 1 and i == 1 then
+            thisDay.story = FirstContactStory()
         end
         --if month == 2 and i == 1 then
         --    thisDay.story = AlwaysTestStory()

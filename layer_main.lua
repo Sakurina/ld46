@@ -9,10 +9,10 @@ function MainLayer:new()
 
     -- calendar
     self.calendar = Calendar(self.game_state.current_year, self.game_state.current_month)
-    self.mode_queue = {"wait_for_text", "wait_for_any_input", "planning", "event_loop"}
+    self.mode_queue = {"story", "planning", "event_loop"}
 
     -- dialogue state
-    self.textbox_string = "Schedule some activities for the month and then press the checkmark button."
+    self.textbox_string = ""
     self.currently_shown_length = 0
 
     -- background and portrait
