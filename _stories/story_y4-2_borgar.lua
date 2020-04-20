@@ -3,8 +3,10 @@ BorgarStory = Story:extend()
 function BorgarStory:new()
     BorgarStory.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3017.UC",
         "08.12 1745",
+        "#bg gfx/bg7.png",
         "I've received a fair amount of money from work this month due to some progress with my robotics work.",
         "I figure I should use this as an opportunity to treat {girl} to some food.",
         "In the last millenia, there was a particularly common source of protein that was consumed daily.",
@@ -25,6 +27,7 @@ function BorgarStory:new()
         ".",
         ".",
         ".",
+        "#bg gfx/bg2.png",
         "At Up-N-Down Burger.",
         "...",
         "We find ourselves next in an extraordinarily long line for the counter.",
@@ -68,6 +71,7 @@ function BorgarStory:new()
         "I take a napkin and wipe the corner of her mouth.",
         "{player}: \"Right here, be careful not to spill any on your clothes.\"",
         "Taking a bite of my burger, a torrent of emotion washes over me.",
+        "#bg gfx/bg6.png",
         "Damn.",
         "I could probably eat three or four of these."
     }
