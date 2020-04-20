@@ -10,7 +10,7 @@ default_game_state = {
         int = 0,
         cha = 0,
         dex = 0,
-        morality = 175,
+        morality = 305,
         trust = 0,
         stress = 0,
 
