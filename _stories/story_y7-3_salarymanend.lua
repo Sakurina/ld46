@@ -19,7 +19,7 @@ function SalarymanEnd:new()
 		"THANKS TO HER EFFORTS, THE CONCEPT OF OVERTIME HAS NOW ENTERED THE OUTER FEDERATION'S VOCABULARY.",
 		"YOU'VE RUINED US.",
 		"WE HAVE ATTACHED AN IMAGE OF YOUR GIVER AND HER NEW TRADE.",
-		"#portrait gfx/portrait_salaryman.png",
+		"#portrait gfx/portrait_end_salaryman.png",
 		"THANKS FOR NOTHING.",
 		"WE WILL BE DETONATING YOUR PLANET SHORTLY. ",
 		"SIGNED,",

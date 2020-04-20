@@ -22,7 +22,7 @@ function ChefEnd:new()
 		"BUT THEY ARE DAMN GOOD.",
 		"WE EAT THREE OR FOUR OF THEM IN A SINGLE SITTING.",
 		"WE HAVE ATTACHED AN IMAGE OF YOUR GIVER AND HER NEW TRADE.",
-		"#portrait gfx/portrait_chef.png",
+		"#portrait gfx/portrait_end_chef.png",
 		"YOU HAVE AVOIDED DESTRUCTION FOR NOW AS THE OUTER FEDERATION LOVES FOOD.",
 		"SIGNED,",
 		"OUTER FEDERATION",

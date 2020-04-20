@@ -9,6 +9,6 @@ function StudyEvent:new()
     self.stat_growths = {
         StatGrowth("money", constants.study_event.cost_per_day, constants.study_event.cost_per_day),
         StatGrowth("int", constants.study_event.int_delta_regular, constants.study_event.int_delta_lucky),
-        StatGrowth("alchemy", cosntants.study_event.alchemy_delta, constants.study_event.alchemy_delta)
+        StatGrowth("alchemy", constants.study_event.alchemy_delta, constants.study_event.alchemy_delta)
     }
 end

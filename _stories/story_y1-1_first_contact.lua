@@ -54,7 +54,7 @@ function FirstContactStory:new()
 	"Who knows what someone might think if they saw this.",
 	"My praises of good fortune are quickly cut short, however, as the girl inside opens her eyes and turns her attention towards me.",
 	"Girl: \"..TAKER..\"",
-	"{1}: \"Excuse me?\"",
+	"{player}: \"Excuse me?\"",
 	"Her stare locks onto my eyes, running a chill down my spine as she emerges from her egg-shaped cocoon.",
 	"Girl: \"TAKER.\"",
 	"Her right arm raises and points past me.",
