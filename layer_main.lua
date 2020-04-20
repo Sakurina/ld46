@@ -313,7 +313,7 @@ function MainLayer:wait_for_any_input_input()
 end
 
 function MainLayer:spawn_schedule_layer()
-    layer_manager:prepend(ScheduleLayer(self.calendar))
+    layer_manager:prepend(ScheduleLayer(self.calendar, self.game_state.stats.money))
 end
 
 function MainLayer:spawn_lifestyle_layer()

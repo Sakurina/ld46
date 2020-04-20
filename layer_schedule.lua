@@ -1,9 +1,10 @@
 ScheduleLayer = Layer:extend()
 
-function ScheduleLayer:new(calendar)
+function ScheduleLayer:new(calendar, currency)
     ScheduleLayer.super.new(self)
     self.layer_name = "ScheduleLayer"
     self.calendar = calendar
+    self.currency = currency
     self.current_week = 1
     self.propagate_input_to_underlying = false
     self.box_patch = patchy.load("gfx/textbox.9.png")
@@ -98,6 +99,8 @@ function ScheduleLayer:draw(dt)
 
     love.graphics.setColor(txt.r, txt.g, txt.b, 1)
     love.graphics.rectangle("line", cal_x, cal_y, cal_w, cal_h)
+
+    love.graphics.printf(lume.format("${1}", { self.currency }), cal_x, cal_y + cal_h + 15, cal_w, "center")
 
     -- week rows
     for w = 1, 6, 1
