@@ -74,19 +74,16 @@ function MainLayer:draw()
     love.graphics.scale(box_scale, box_scale)
     love.graphics.setColor(1, 1, 1, 1)
     local cal_x, cal_y, cal_w, cal_h = self.box_patch:draw(0, 0, 240 / box_scale, 219 / box_scale) -- calendar
-    local dec_x, dec_y, dec_w, dec_h = self.box_patch:draw(1199 / box_scale, 0, 81 / box_scale, 219 / box_scale) -- menu
     local txt_x, txt_y, txt_w, txt_h = self.box_patch:draw(0, 480 / box_scale, 1280 / box_scale, 240 / box_scale) -- textbox
+    if lume.first(self.mode_queue) == "planning" then
+        local dec_x, dec_y, dec_w, dec_h = self.box_patch:draw(1199 / box_scale, 0, 81 / box_scale, 219 / box_scale) -- menu
+    end
     love.graphics.pop()
 
     cal_x = cal_x * box_scale + box_scale * 12
     cal_y = cal_y * box_scale + box_scale * 6
     cal_w = cal_w * box_scale - (box_scale * 12) * 2
     cal_h = cal_h * box_scale - (box_scale * 6) * 2
-
-    dec_x = dec_x * box_scale
-    dec_y = dec_y * box_scale
-    dec_w = dec_w * box_scale
-    dec_h = dec_h * box_scale
 
     txt_x = txt_x * box_scale + box_scale * 12
     txt_y = txt_y * box_scale + box_scale * 6
@@ -121,8 +118,6 @@ function MainLayer:draw()
         love.graphics.setColor(1, 1, 1, 1)
         love.graphics.draw(self.icons[day.daily_event.event_name], icon_x, icon_y, 0, 3, 3)
     end
-    --local date = lume.format("Y{1} M{2}\nDay {3}", { self.calendar.year, self.calendar.month, self.calendar.current_day })
-    --love.graphics.printf(date, cal_x, cal_y, cal_w, "left")
 
     -- textbox string
     love.graphics.setColor(txt.r, txt.g, txt.b, 1)
