@@ -5,7 +5,6 @@ function HeadpatsStory:new()
     self.lines = { 
         "3015.UC",
         "02.14 2300",
-        "A year flew by without much issue.",
         "A gust of wind howls through my window as the metallic frame of the house reverberates against itself.",
         "I walk over to the window to shut it.",
         "Click.",
