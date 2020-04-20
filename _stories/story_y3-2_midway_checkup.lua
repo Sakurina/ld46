@@ -13,7 +13,7 @@ function MidwayCheckupStory:new()
         "Maybe she can't hear me from her room?",
         "I turn off the kitchen stove and wipe my hands.",
         "I make my way to her room and give the door a few knocks.",
-        "{player}: \"Hello? {girl}? You in there? The food's ready.."",
+        "{player}: \"Hello? {girl}? You in there? The food's ready..\"",
         "..",
         "No response.",
         "Well, I have no choice I suppose.",
