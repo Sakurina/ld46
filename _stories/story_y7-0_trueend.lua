@@ -4,6 +4,7 @@ function TrueEnd:new()
     TrueEnd.super.new(self)
     self.lines = { 
 		"#bg gfx/bg1.png",
+		"#music bgm/Lazy Marine - 91 T1.wav",
 		"EPILOGUE",
 		"#bg gfx/bg6.png",
 		"1 Week later...",
@@ -27,6 +28,7 @@ function TrueEnd:new()
 		"The last used application restores itself to the screen.",
 		"..",
 		"An inbox?",
+		"#music bgm/Lazy Marine - 91 T2.wav",
 		"INBOX(0)",
 		"SENT(3)",
 		"DRAFT(1)",
@@ -65,6 +67,7 @@ function TrueEnd:new()
 		"I know now what I did was wrong.",
 		"I want to make--",
 		"*KNOCK KNOCK*",
+		"#music bgm/Lazy Marine - 91 T3.wav",
 		"A noise behind me interrupts my reading.",
 		"I turn around--",
 		"#portrait gfx/portrait_end_researcher.png",
