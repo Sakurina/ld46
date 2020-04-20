@@ -3,8 +3,11 @@ TrueEnd = Story:extend()
 function TrueEnd:new()
     TrueEnd.super.new(self)
     self.lines = { 
+		"#bg gfx/bg1.png",
 		"EPILOGUE",
+		"#bg gfx/bg6.png",
 		"1 Week later...",
+		"#bg gfx/bg7.png",
 		"I'm still cleaning out the remnants of {girl}'s room.",
 		"..",
 		"I didn't have the heart in me to finish it in one sitting.",
@@ -82,8 +85,10 @@ function TrueEnd:new()
 		"{girl}: \"Thanks for everything.\"",
 		"{girl}: \"...But you'll have to take care of me for a little bit longer.\"",
 		"{girl}: \"...Father.\"",
+		"#bg gfx/bg6.png",
 		"Ah.",
 		"So this is \"it\".",
+		"#bg gfx/bg1.png",
 		"TRUE END."
     }
 end
