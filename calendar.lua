@@ -29,12 +29,19 @@ function Calendar:new(year, month)
             thisDay.story = UpgradeStory()
         elseif year == 3015 and month == 2 and i == 14 then
             thisDay.story = HeadpatsStory()
+        elseif year == 3016 and month == 6 and i == 20 then
+            thisDay.story = HelpPt1Story()
+        elseif year == 3016 and month == 12 and i == 31 then
+            thisDay.story = MidwayCheckupStory()
+        elseif year == 3017 and month == 3 and i == 23 then
+            thisDay.story = AloneStory()
+        elseif year == 3017 and month == 8 and i == 12 then
+            thisDay.story = BorgarStory()
+        elseif year == 3018 and month == 12 and i == 18 then
+            thisDay.story = HelpPt2Story()
+        elseif year == 3019 and month == 12 and i == 31 then
+            thisDay.story = GoodbyeStory()
         end
-        --if month == 2 and i == 1 then
-        --    thisDay.story = AlwaysTestStory()
-        --elseif month == 3 and i == 15 then
-        --    thisDay.story = PreconTestStory()
-        --end
 
         self.days[i] = thisDay
     end

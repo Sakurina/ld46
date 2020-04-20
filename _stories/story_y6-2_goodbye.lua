@@ -17,7 +17,7 @@ function GoodbyeStory:new()
         "{player}: \"..Oh..hey.\"",
         "{player}: \"Something wrong?\"",
         "{girl}: \"No..\"",
-        "{player}: \"..Today's the last day, huh?"",
+        "{player}: \"..Today's the last day, huh?\"",
         "{girl}: ..",
         "{girl}: (nods)",
         "{player}: \"These past six years have gone by so fast...\"",
