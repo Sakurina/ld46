@@ -220,7 +220,9 @@ end
 
 function MainLayer:keypressed(key, scancode, isrepeat)
     local current_mode = lume.first(self.mode_queue)
-    if current_mode == "wait_for_text" then
+    if key == layer_manager.controls["Back"] then
+        self:story_skip()
+    elseif current_mode == "wait_for_text" then
         self:wait_for_text_input()
     elseif current_mode == "wait_for_any_input" then
         self:wait_for_any_input_input()
@@ -232,6 +234,19 @@ function MainLayer:keypressed(key, scancode, isrepeat)
         elseif key == layer_manager.controls["Stats"] then
             self:spawn_stats_layer()
         end
+    end
+end
+
+function MainLayer:story_skip()
+    if lume.first(self.mode_queue) == "wait_for_text" then
+        self:pop_current_mode()
+    end
+    if lume.first(self.mode_queue) == "wait_for_any_input" then
+        self:pop_current_mode()
+    end
+    if lume.first(self.mode_queue) == "story" then
+        self.calendar:todays_story_handled()
+        self:pop_current_mode()
     end
 end
 
