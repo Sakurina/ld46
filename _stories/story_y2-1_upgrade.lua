@@ -5,7 +5,7 @@ function UpgradeStory:new()
     self.lines = { 
         "#bg gfx/bg1.png",
         "3015.UC",
-        "01.01 0900",
+        "01.01 0900 HOME",
         "#bg gfx/bg7.png",
         "{player}: \"Good morning, {girl}.\"",
         "{girl}: ...",
