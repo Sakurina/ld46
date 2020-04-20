@@ -149,6 +149,18 @@ function MainLayer:update(dt)
             self.blinky_counter = self.blinky_counter + 1
         end
     elseif lume.first(self.mode_queue) == "planning" then
+        if self.portrait == nil then
+            if self.calendar.year == 3014 and self.calendar.month <= 4 then
+                self.portrait = love.graphics.newImage("gfx/portrait_egg.png")
+            else
+                local type = self:current_flavor()
+                self.portrait = love.graphics.newImage(lume.format("gfx/portrait_baby_{type}.png", { type = type }))
+            end
+        end
+
+        if self:should_trigger_bad_end() then
+            self:trigger_ending()
+        end
         return
     elseif lume.first(self.mode_queue) == "story" then
         local story = self.calendar:todays_story()
@@ -199,6 +211,7 @@ function MainLayer:update(dt)
             if self.calendar:story_needs_handling_today() then
                 local story = self.calendar:todays_story()
                 if story:meets_preconditions(self.game_state.stats) then
+                    self.portrait = nil
                     self.mode_queue = { "story", "event_loop" }
                 else
                     self.calendar:todays_story_handled()
@@ -312,10 +325,15 @@ function MainLayer:spawn_stats_layer()
 end
 
 function MainLayer:start_of_new_month(y, m)
-    -- return mode queue to a predictable state to avoid bugs distributed across codebase
-    self.currently_shown_length = 0
-    self.textbox_string = "It's the first of the month! Time to plan some more activities!"
-    self.mode_queue = { "wait_for_text", "wait_for_any_input", "planning", "event_loop" }
+    if y == 3020 and m == 1 then
+        self.calendar.current_day = 7
+        self:trigger_ending()
+    else
+        -- return mode queue to a predictable state to avoid bugs distributed across codebase
+        self.currently_shown_length = 0
+        self.textbox_string = "It's the first of the month! Time to plan some more activities!"
+        self.mode_queue = { "wait_for_text", "wait_for_any_input", "planning", "event_loop" }
+    end
 end
 
 function MainLayer:set_textbox_string(str)
@@ -382,4 +400,38 @@ function MainLayer:current_flavor()
     else
         return "cute"
     end
+end
+
+function MainLayer:should_trigger_bad_end()
+    return self.game_state.stats.money < 0 or self.game_state.stress == constants.stat_caps.stress
+end
+
+function MainLayer:current_ending()
+    if self:should_trigger_bad_end() then
+        -- bad end
+        return BadEnd()
+    elseif self.game_state.stats.int >= 780 and self.game_state.stats.morality >= 555 and self.game_state.stats.trust >= 504 then
+        -- ideal/researcher
+        return TrueEnd()
+    elseif self.game_state.stats.int <= 305 and self.game_state.stats.charisma <= 305 then
+        -- salaryman
+        return SalarymanEnd()
+    elseif self.game_state.stats.cha >= 780 and self.game_state.stats.dex >= 780 then
+        -- chef
+        return ChefEnd()
+    elseif self.game_state.stats.int >= 780 then
+        -- alchemist
+        return AlchemistEnd()
+    elseif self.game_state.stats.str >= 555 and self.game_state.stats.morality <= 305 then
+        -- pirate
+        return PirateEnd()
+    end
+    -- bad end
+    return BadEnd()
+end
+
+function MainLayer:trigger_ending()
+    local ending = self:current_ending()
+    self.calendar.days[self.calendar.current_day].story = ending
+    self.mode_queue = { "story" }
 end
