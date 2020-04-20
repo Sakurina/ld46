@@ -5,7 +5,7 @@ function HelpPt2Story:new()
     self.lines = {
         "#bg gfx/bg1.png",
         "3018.UC",
-        "12.25 1745",
+        "12.25 1745 HOME",
         "#bg gfx/bg7.png",
         "..",
         "...",
