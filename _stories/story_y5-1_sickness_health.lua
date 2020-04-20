@@ -4,7 +4,7 @@ function SicknessHealthStory:new()
     SicknessHealthStory.super.new(self)
     self.lines = { 
         "3018.UC",
-        "10.25 1900",
+        "12.18 1900",
         "It's..already this late?",
         "Oh man..",
         "I'm..",
