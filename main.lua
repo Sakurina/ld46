@@ -2,9 +2,7 @@ lume = require "deps/lume"
 lovebird = require "deps/lovebird"
 Object = require "deps/classic"
 json = require "deps/json"
-anim8 = require "deps/anim8"
 require("deps/tesound")
-require('deps/camera')
 patchy = require('deps/patchy')
 require("helpers")
 -- game logic
