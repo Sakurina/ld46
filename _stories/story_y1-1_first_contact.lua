@@ -4,7 +4,7 @@ function FirstContactStory:new()
     FirstContactStory.super.new(self)
     self.lines = { 
         "30XX.UC 06.20 HOME",
-	"#bg gfx/bg3.png",
+	"#bg gfx/bg7.png",
 	"...",
 	"..Nnh..",
 	"A feel a light creep slowly up my face, the burn from its warmth prickling my skin.",
@@ -61,7 +61,7 @@ function FirstContactStory:new()
 	"She gracefully drops her arm, grasping her other hand behind her back.",
 	"Is she fidgeting? Is she anxious about something?",
 	"Not sure what to make of this situation, I can only assume this is related to that mail...",
-	"#bg gfx/bg3.png",	
+	"#bg gfx/bg7.png",	
 	"SUBJECT: !!!!! ATTN: A.C.P.P. COMPULSORY PARTICIPATION !!!!!",
 	"FROM: <REDACTED BY USER>",
 	"BODY: ",
