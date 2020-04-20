@@ -6,6 +6,7 @@ function HelpPt2Story:new()
         "#bg gfx/bg1.png",
         "3018.UC",
         "12.25 1745 HOME",
+        "#music bgm/Lazy Marine - 91 T2.wav",
         "#bg gfx/bg7.png",
         "..",
         "...",
