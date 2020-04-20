@@ -372,9 +372,9 @@ function MainLayer:save_state()
 end
 
 function MainLayer:current_flavor()
-    local cool = ((self.game_state.combat / constants.stat_caps.combat) + (self.game_state.alchemy / constants.stat_caps.alchemy)) / 2
-    local cute = ((self.game_state.alchemy / constants.stat_caps.alchemy) + (self.game_state.research / constants.stat_caps.research) + (self.game_state.business / constants.stat_caps.business)) / 3
-    local passion = ((self.game_state.business / constants.stat_caps.business) + (self.game_state.cooking / constants.stat_caps.cooking)) / 2
+    local cool = ((self.game_state.stats.combat / constants.stat_caps.combat) + (self.game_state.stats.alchemy / constants.stat_caps.alchemy)) / 2
+    local cute = ((self.game_state.stats.alchemy / constants.stat_caps.alchemy) + (self.game_state.stats.research / constants.stat_caps.research) + (self.game_state.stats.business / constants.stat_caps.business)) / 3
+    local passion = ((self.game_state.stats.business / constants.stat_caps.business) + (self.game_state.stats.cooking / constants.stat_caps.cooking)) / 2
     if cool > cute and cool > passion then
         return "cool"
     elseif passion > cool and passion > cute then
