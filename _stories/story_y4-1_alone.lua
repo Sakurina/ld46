@@ -7,6 +7,7 @@ function AloneStory:new()
         "3017.UC",
         "03.23 0030 HOME",
         "#bg gfx/bg3.png",
+        "#music bgm/Lazy Marine - 91 T1.wav",
         "{girl} is fast asleep in her room right now.",
         "For some reason I can't sleep.",
         "So, like I've done in the past, I immerse myself in my research.",

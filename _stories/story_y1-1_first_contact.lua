@@ -7,6 +7,7 @@ function FirstContactStory:new()
         "30XX.UC",
 	"06.20 1500 HOME",
 	"#bg gfx/bg7.png",
+	"#music bgm/Lazy Marine - 91 T1.wav",
 	"...",
 	"..Nnh..",
 	"A feel a light creep slowly up my face, the burn from its warmth prickling my skin.",

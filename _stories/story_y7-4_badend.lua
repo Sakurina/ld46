@@ -4,6 +4,7 @@ function BadEnd:new()
     BadEnd.super.new(self)
     self.lines = { 
 		"#bg gfx/bg1.png",
+		"#music bgm/Lazy Marine - 91 T1.wav",
 		"*BEEP*",
 		"*BEEP*",
 		"SUBJECT: !!!!! A.C.P.P. RESULTS !!!!!",

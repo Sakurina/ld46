@@ -4,6 +4,7 @@ function ChefEnd:new()
     ChefEnd.super.new(self)
     self.lines = { 
 		"#bg gfx/bg1.png",
+		"#music bgm/Lazy Marine - 91 T2.wav",
 		"EPILOGUE",
 		"1 week later.",
 		"*BEEP*",
