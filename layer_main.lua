@@ -49,13 +49,13 @@ end
 
 function MainLayer:draw()
     -- background layer
-    local bgc = constants.light_bg_color
+    local bgc = constants.dark_bg_color
     if self.background == nil then
         love.graphics.setColor(bgc.r, bgc.g, bgc.b, 1)
         love.graphics.rectangle("fill", 0, 0, 1280, 720) -- solid color
     else
         love.graphics.setColor(1, 1, 1, 1)
-        love.graphics.draw(self.background, 0, 0, 0, 3, 3) -- img scaled by 3
+        love.graphics.draw(self.background, 0, 0, 0, 4, 4)
     end
 
     -- character portrait

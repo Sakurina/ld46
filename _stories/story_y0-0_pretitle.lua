@@ -3,8 +3,8 @@ PreTitleStory = Story:extend()
 function PreTitleStory:new()
     PreTitleStory.super.new(self)
     self.lines = { 
-        "The year is 3014.UC."
-	"#bg gfx/bg1.png",
+		"The year is 3014.UC."
+		,"#bg gfx/bg1.png"
 		,"With the help of the Advanced A.I. technology and robotics I developed, mankind found itself marching towards a new age of efficiency-"
 		,"But with that came an unforeseen consequence."
 		,"Technology laid bare humanity's insecurities, breaking the once common bonds of society."

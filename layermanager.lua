@@ -13,7 +13,6 @@ function LayerManager:new()
         Back = "escape",
         Stats = "1",
         Schedule = "2",
-        Lifestyle = "3"
     }
     self.controls = self.default_controls
 end

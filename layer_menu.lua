@@ -4,7 +4,7 @@ function MenuLayer:new()
     MenuLayer.super.new(self)
     self.layer_name = "MenuLayer"
     self.selected_index = 1
-    self.items = { "Play", "Controls", "Quit" }
+    self.items = { "Play" }
     self.logo = love.graphics.newImage("gfx/title.png")
 
 end
@@ -26,7 +26,7 @@ function MenuLayer:draw()
     logo_w = logo_w * 3
     logo_h = logo_h * 3
     local logo_x = (win_w - logo_w) / 2
-    local logo_y = (win_h - logo_h) / 2 - 150
+    local logo_y = (win_h - logo_h) / 2 - 25
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.draw(self.logo, logo_x, logo_y, 0, 3)
 
@@ -36,8 +36,8 @@ function MenuLayer:draw()
         else
             love.graphics.setColor(deem.r, deem.g, deem.b, 1.0)
         end
-        local y = 223 + 50 + i * constants.unit_menu_height_per_item
-        love.graphics.print(self.items[i], 543, y)
+        local y = logo_y + 50 + i * constants.unit_menu_height_per_item
+        love.graphics.print(self.items[i], (1280 - 100) / 2, y)
     end
 end
 
@@ -59,9 +59,6 @@ function MenuLayer:keypressed(key, scancode, isrepeat)
         self:next_item()
     elseif key == layer_manager.controls["Confirm"] then
         self:select_item()
-    elseif key == 'p' then
-        local layer = EndingPromptLayer()
-        layer_manager:prepend(layer)
     end
 end
 
@@ -93,13 +90,8 @@ function MenuLayer:select_item()
     if self.selected_index == 1 then
         destination_layer = NamesLayer()
     end
-    if self.selected_index == 2 then
-        destination_layer = ControlsLayer()
-    end
+
     if destination_layer ~= nil then
         layer_manager:transition(self, destination_layer)
-    end
-    if self.selected_index == 3 then
-        love.event.push('quit')
     end
 end

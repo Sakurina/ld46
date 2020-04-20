@@ -10,6 +10,9 @@ function PrologueLayer:new(story)
     self.textbox_string = ""
     self.currently_shown_length = 0
 
+    self.background = nil
+    self.portrait = nil
+
     self.blinky_icon = love.graphics.newImage("gfx/icon_next.png")
     self.blinky_rect = { x = 1280 - 30 - 15, y = 720 - 30 - 30, w = 15, h = 30 }
     self.show_blinker = true
@@ -19,9 +22,24 @@ end
 function PrologueLayer:draw()
     -- background layer
     local bgc = constants.dark_bg_color
-    love.graphics.setColor(bgc.r, bgc.g, bgc.b, 1)
-    love.graphics.rectangle("fill", 0, 0, 1280, 720)
-
+    if self.background == nil then
+        love.graphics.setColor(bgc.r, bgc.g, bgc.b, 1)
+        love.graphics.rectangle("fill", 0, 0, 1280, 720) -- solid color
+    else
+        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(self.background, 0, 0, 0, 4, 4) -- img scaled by 4
+    end
+    
+    -- character portrait
+    if self.portrait ~= nil then
+        local sw, sh = love.graphics.getDimensions() -- screen width/height
+        local pw, ph = self.portrait:getDimensions() -- portrait width/height
+        local x = (sw - pw * 3) / 2
+        local y = (sh - ph * 3) / 2 - 15
+        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(self.portrait, x, y, 0, 3, 3)
+    end
+    
     -- boxes
     local box_scale = 3
     love.graphics.push()
@@ -75,7 +93,25 @@ function PrologueLayer:update(dt)
             self:pop_current_mode()
         else
             local line = story.lines[story.current_line]
-            self:set_textbox_string(story.lines[story.current_line])
+            
+            if string_begins_with(line, "#portrait ") then
+                local path = string.gsub(line, "#portrait ", "")
+                if path ~= "none" then
+                    local type = self:current_flavor()
+                    self.portrait = love.graphics.newImage(path)
+                else
+                    self.portrait = nil
+                end
+            elseif string_begins_with(line, "#bg ") then
+                local path = string.gsub(line, "#bg ", "")
+                if path ~= "none" then
+                    self.background = love.graphics.newImage(path)
+                else
+                    self.background = nil
+                end
+            else
+                self:set_textbox_string(line)
+            end
         end
     end
 end
