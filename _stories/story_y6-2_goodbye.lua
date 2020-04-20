@@ -13,6 +13,7 @@ function GoodbyeStory:new()
         "What's done is done.",
         "I did the best I could.",
         "As I sit at my desk, I feel a gaze trace the back of my head.",
+        "#portrait gfx/portrait_baby_{type}.png",
         "{girl} is in my doorway again.",
         "{player}: \"..Oh..hey.\"",
         "{player}: \"Something wrong?\"",
