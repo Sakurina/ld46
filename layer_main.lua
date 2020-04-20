@@ -186,6 +186,8 @@ function MainLayer:update(dt)
                 else
                     self.background = nil
                 end
+            elseif string_begins_with(line, "#music ") then
+                return -- TODO MUSIC
             else
                 self:set_textbox_string(story.lines[story.current_line])
             end
