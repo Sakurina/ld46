@@ -187,7 +187,10 @@ function MainLayer:update(dt)
                     self.background = nil
                 end
             elseif string_begins_with(line, "#music ") then
-                return -- TODO MUSIC
+                local path = string.gsub(line, "#music ", "")
+                TEsound.stop("music")
+                TEsound.playLooping(path, 'stream', 'music')
+                return
             else
                 self:set_textbox_string(story.lines[story.current_line])
             end

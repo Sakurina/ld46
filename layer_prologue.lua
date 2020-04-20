@@ -109,6 +109,11 @@ function PrologueLayer:update(dt)
                 else
                     self.background = nil
                 end
+            elseif string_begins_with(line, "#music ") then
+                local path = string.gsub(line, "#music ", "")
+                TEsound.stop("music")
+                TEsound.playLooping(path, 'stream', 'music')
+                return
             else
                 self:set_textbox_string(line)
             end
