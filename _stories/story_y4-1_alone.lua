@@ -5,7 +5,7 @@ function AloneStory:new()
     self.lines = { 
         "#bg gfx/bg1.png",
         "3017.UC",
-        "03.23 0030",
+        "03.23 0030 HOME",
         "#bg gfx/bg3.png",
         "{girl} is fast asleep in her room right now.",
         "For some reason I can't sleep.",
