@@ -1,5 +1,6 @@
 default_game_state = {
     character_name = "Celestia",
+    caregiver_name = "Bruce",
     current_year = 3014,
     current_month = 1,
     stats = {

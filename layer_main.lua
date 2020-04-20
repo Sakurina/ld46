@@ -319,7 +319,7 @@ end
 
 function MainLayer:set_textbox_string(str)
     if self.game_state ~= nil then
-        str = lume.format(str, { self.game_state.character_name })
+        str = lume.format(str, { player = self.game_state.caregiver_name, girl = self.game_state.character_name })
     end
     self.currently_shown_length = 0
     self.textbox_string = str
