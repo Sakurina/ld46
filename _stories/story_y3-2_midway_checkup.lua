@@ -56,6 +56,7 @@ function MidwayCheckupStory:new()
         "SIGNED,",
         "OUTER FEDERATION",
         "DAYS REMAINING: 1095",
+        "#bg gfx/bg6.png",
         "..",
         "...",
         "Good thing I cut those apples."
