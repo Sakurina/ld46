@@ -3,8 +3,10 @@ HelpPt1Story = Story:extend()
 function HelpPt1Story:new()
     HelpPt1Story.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3016.UC",
         "06.20 1730",
+        "#bg gfx/bg5.png",
         "We're out at the market doing some grocery shopping in the Auxiliary District.",
         "The food out here tends to taste...less sterile.",
         "The price point also being competitive is just another perk which I will choose to gloss over.",
@@ -20,6 +22,7 @@ function HelpPt1Story:new()
         "{girl} runs to my side and grabs my hand.",
         "However, as we make our way towards the fruit stands we hear see a crowd of people around an apple wagon.",
         "A voice shouts out,",
+        "#bg gfx/bg6.png",
         "Distant Voice: \"..-can't you see you're ruining business!\"",
         "We make our way to the edge of the crowd to figure out what all the commotion is.",
         "There is a young girl cowering in front of a push cart full of apples.",
@@ -63,6 +66,7 @@ function HelpPt1Story:new()
         "{player}: ...",
         "{player}: \"..guess we have some work to do..\"",
         "{girl}: (nods)",
+        "#bg gfx/bg5.png",
         "We spent the rest of the evening picking up apples."
     }
 end
