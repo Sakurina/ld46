@@ -3,9 +3,9 @@ BadEnd = Story:extend()
 function BadEnd:new()
     BadEnd.super.new(self)
     self.lines = { 
+		"#bg gfx/bg1.png",
 		"*BEEP*",
 		"*BEEP*",
-
 		"SUBJECT: !!!!! A.C.P.P. RESULTS !!!!!",
 		"BODY:",
 		"TAKER.",
