@@ -5,7 +5,7 @@ function MidwayCheckupStory:new()
     self.lines = { 
         "#bg gfx/bg1.png",
         "3016.UC",
-        "12.31 1200",
+        "12.31 1200 HOME",
         "#bg gfx/bg7.png",
         "It's around noon and {girl} happened to be around to eat lunch. ",
         "I've made sure to cut some apples up on the side too since she's been taking a liking to them in particular lately.",
