@@ -25,6 +25,8 @@ function Calendar:new(year, month)
             thisDay.story = FirstContactStory()
         elseif year == 3014 and month == 04 and i == 1 then
             thisDay.story = CityIntroStory()
+        elseif year == 3015 and month == 2 and i == 14 then
+            thisDay.story = HeadpatsStory()
         end
         --if month == 2 and i == 1 then
         --    thisDay.story = AlwaysTestStory()
