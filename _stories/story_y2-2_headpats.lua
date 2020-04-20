@@ -30,6 +30,7 @@ function HeadpatsStory:new()
         "I truly hope she sees that we're not too fargone as a species.",
         "The silence of the room is broken by a creak at my door.",
         "{girl} stands half-way into the doorway, eyes downcast.",
+        "#portrait gfx/portrait_baby_{type}.png",
         "I had given {girl} her own room in the house--",
         "I have a sizeable living quarter given to me by the neo-government considering my contributions to society.",
         "It was no problem just giving her a section of the house to live in.",
