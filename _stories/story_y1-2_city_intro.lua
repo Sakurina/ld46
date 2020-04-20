@@ -3,6 +3,7 @@ CityIntroStory = Story:extend()
 function CityIntroStory:new()
     CityIntroStory.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3014.UC",
         "04.01 1800",
         "#bg gfx/bg5.png",
