@@ -4,6 +4,7 @@ function PreTitleStory:new()
     PreTitleStory.super.new(self)
     self.lines = { 
         "The year is 3014.UC."
+	"#bg gfx/bg1.png",
 		,"With the help of the Advanced A.I. technology and robotics I developed, mankind found itself marching towards a new age of efficiency-"
 		,"But with that came an unforeseen consequence."
 		,"Technology laid bare humanity's insecurities, breaking the once common bonds of society."
@@ -11,6 +12,7 @@ function PreTitleStory:new()
 		,"Work and efficiency were the only things that mattered now."
 		,"What could you contribute today?"
 		,"Life became nothing but a transaction, and our lives, its currency."
+		,"#bg gfx/bg4.png"
 		,"\"..The whereabouts of which are still unkn--\""
 		,"The monitor plastered across the building in front of me pierces through my train of thought."
 		,"They're still writing news about them, huh?"
