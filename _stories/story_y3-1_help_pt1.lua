@@ -10,7 +10,7 @@ function HelpPt1Story:new()
         "The price point also being competitive is just another perk which I will choose to gloss over.",
         "As of late, {girl} has been working a variety of jobs and the people in this area seem to have gotten used to seeing her around town.",
         "#portrait gfx/portrait_baby_{type}.png",
-        "Watching, {girl} dart about the market really ",
+        "Watching, {girl} excitedly dart about the market put a smile on my face like none other.",
         "Life in the Auxiliary really is a stark contrast to life in the Capital.",
         "Here, efficiency still reigns but not as a matter of preference.",
         "It was necessary to survive.",
