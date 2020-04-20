@@ -6,6 +6,7 @@ function GoodbyeStory:new()
         "#bg gfx/bg1.png",
         "3019.UC",
         "12.31 2200 HOME",
+        "#music bgm/Lazy Marine - 91 T1.wav",
         "#bg gfx/bg7.png",
         "Last day.",
         "I can only hope that I raised her correctly.",
