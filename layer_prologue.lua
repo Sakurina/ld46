@@ -49,12 +49,12 @@ function PrologueLayer:draw()
 end
 
 function PrologueLayer:update(dt)
-    if self.currently_shown_length < #self.textbox_string then
+    if lume.first(self.mode_queue) == "logo" then
+        self.mode_queue = {}
+        layer_manager:transition(self, MenuLayer())
+    elseif self.currently_shown_length < #self.textbox_string then
         -- dialogue increment
         self.currently_shown_length = self.currently_shown_length + 1
-    elseif lume.first(self.mode_queue) == "logo" then
-        self:pop_current_mode()
-        layer_manager:transition(self, MenuLayer())
     elseif lume.first(self.mode_queue) == "wait_for_text" then
         self:pop_current_mode()
     elseif lume.first(self.mode_queue) == "wait_for_any_input" then
