@@ -7,6 +7,7 @@ function UpgradeStory:new()
         "01.01 0900",
         "{player}: \"Good morning, {girl}.\"",
         "{girl}: ...",
+        "#portrait gfx/portrait_baby_{type}.png",
         "{girl}: \"Good morning..TAKER.\"",
         "With the dawn, came a new year and with it a reminder of what was to come.",
         "5 more years, huh...",
