@@ -2,9 +2,11 @@ SicknessHealthStory = Story:extend()
 
 function SicknessHealthStory:new()
     SicknessHealthStory.super.new(self)
-    self.lines = { 
+    self.lines = {
+        "#bg gfx/bg1.png",
         "3018.UC",
         "12.18 1900",
+        "#bg gfx/bg7.png",
         "It's..already this late?",
         "Oh man..",
         "I'm..",
