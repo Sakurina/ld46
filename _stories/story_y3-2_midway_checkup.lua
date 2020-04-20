@@ -3,8 +3,10 @@ MidwayCheckupStory = Story:extend()
 function MidwayCheckupStory:new()
     MidwayCheckupStory.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3016.UC",
-        "12.31 1200",
+        "12.31 1200 HOME",
+        "#bg gfx/bg7.png",
         "It's around noon and {girl} happened to be around to eat lunch. ",
         "I've made sure to cut some apples up on the side too since she's been taking a liking to them in particular lately.",
         "{player}: \"{girl}? Lunch is ready!\"",
@@ -54,6 +56,7 @@ function MidwayCheckupStory:new()
         "SIGNED,",
         "OUTER FEDERATION",
         "DAYS REMAINING: 1095",
+        "#bg gfx/bg6.png",
         "..",
         "...",
         "Good thing I cut those apples."

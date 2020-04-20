@@ -3,8 +3,10 @@ GoodbyeStory = Story:extend()
 function GoodbyeStory:new()
     GoodbyeStory.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3019.UC",
-        "12.31 2200",
+        "12.31 2200 HOME",
+        "#bg gfx/bg7.png",
         "Last day.",
         "I can only hope that I raised her correctly.",
         "The Outer Federation decides the fate of our whole planet..",
@@ -42,9 +44,11 @@ function GoodbyeStory:new()
         "...",
         "I slept that night, clear of mind.",
         "As if the day of judgement was never coming.",
+        "#bg gfx/bg1.png",
         "..",
         "...",
         "....",
+        "#bg gfx/bg6.png",
         "When I awoke, she was gone.",
         "DAYS REMAINING: 0"
     }

@@ -3,8 +3,10 @@ AloneStory = Story:extend()
 function AloneStory:new()
     AloneStory.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3017.UC",
-        "03.23 0030",
+        "03.23 0030 HOME",
+        "#bg gfx/bg3.png",
         "{girl} is fast asleep in her room right now.",
         "For some reason I can't sleep.",
         "So, like I've done in the past, I immerse myself in my research.",

@@ -72,7 +72,7 @@ function love.load()
     layer_manager:reload_controls()
     local initial_layer = PrologueLayer(PreTitleStory())
     layer_manager:prepend(initial_layer)
-    TEsound.playLooping("bgm/Lazy Marine - 91 T3.wav", 'stream')
+    TEsound.playLooping("bgm/Lazy Marine - 91 Full.wav", 'stream', 'music')
 end
 
 function love.draw()

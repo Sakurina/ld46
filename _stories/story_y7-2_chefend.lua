@@ -3,6 +3,7 @@ ChefEnd = Story:extend()
 function ChefEnd:new()
     ChefEnd.super.new(self)
     self.lines = { 
+		"#bg gfx/bg1.png",
 		"EPILOGUE",
 		"1 week later.",
 		"*BEEP*",

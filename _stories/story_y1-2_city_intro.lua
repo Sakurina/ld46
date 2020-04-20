@@ -3,8 +3,10 @@ CityIntroStory = Story:extend()
 function CityIntroStory:new()
     CityIntroStory.super.new(self)
     self.lines = { 
-        "3014.UC",
+        "#bg gfx/bg1.png",
+        "3014.UC CAPITAL DISTRICT",
         "04.01 1800",
+        "#bg gfx/bg5.png",
         "It's been a couple months now, taking care of {girl}.",
         "#portrait gfx/portrait_baby_{type}.png",
         "I've taken her out to walk in the city a couple times with the hope of getting her familiar with our planet but only through the Capital District.",

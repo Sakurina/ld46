@@ -2,9 +2,11 @@ HelpPt2Story = Story:extend()
 
 function HelpPt2Story:new()
     HelpPt2Story.super.new(self)
-    self.lines = { 
+    self.lines = {
+        "#bg gfx/bg1.png",
         "3018.UC",
-        "12.25 1745",
+        "12.25 1745 HOME",
+        "#bg gfx/bg7.png",
         "..",
         "...",
         "Nnnh..",
@@ -75,6 +77,7 @@ function HelpPt2Story:new()
         "The White-coated Man smiles even bigger as she briskly escapes the room, bowl in hand.",
         "White-coated Man: ...",
         "{player}: ...",
+        "#bg gfx/bg6.png",
         "White-coated Man: \"Daughters sure are something, aren't they?\"",
         "{player}: ...Yeah."
     }
