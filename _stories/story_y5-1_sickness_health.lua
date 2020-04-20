@@ -28,6 +28,7 @@ function SicknessHealthStory:new()
         "I'm able to make out my door swinging open from the corner of my eye.",
         "This floor feels nice.",
         "It's nice and cold...",
+        "#portrait gfx/portrait_baby_{type}.png",
         "{girl}: (muffled noise)",
         "Oh..",
         "{girl}.",
