@@ -3,13 +3,14 @@ FirstContactStory = Story:extend()
 function FirstContactStory:new()
     FirstContactStory.super.new(self)
     self.lines = { 
-        "30XX.UC 06.20 HOME",
+        "30XX.UC",
+	"06.20 1500 HOME"
 	"#bg gfx/bg7.png",
 	"...",
 	"..Nnh..",
 	"A feel a light creep slowly up my face, the burn from its warmth prickling my skin.",
 	"What time is it?",
-	"1500.",
+	"Already 3PM...",
 	"..already past noon.",
 	"I must've really overdone it last night analyzing that memory unit..",
 	"I haphazardly toss my sheets aside and muster the strength to start my day.",
