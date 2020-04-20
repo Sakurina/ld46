@@ -5,7 +5,7 @@ function SicknessHealthStory:new()
     self.lines = {
         "#bg gfx/bg1.png",
         "3018.UC",
-        "12.18 1900",
+        "12.18 1900 HOME",
         "#bg gfx/bg7.png",
         "It's..already this late?",
         "Oh man..",
