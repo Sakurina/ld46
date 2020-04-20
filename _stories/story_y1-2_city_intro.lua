@@ -4,7 +4,7 @@ function CityIntroStory:new()
     CityIntroStory.super.new(self)
     self.lines = { 
         "#bg gfx/bg1.png",
-        "3014.UC",
+        "3014.UC CAPITAL DISTRICT",
         "04.01 1800",
         "#bg gfx/bg5.png",
         "It's been a couple months now, taking care of {girl}.",
