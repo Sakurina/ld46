@@ -5,7 +5,7 @@ function BorgarStory:new()
     self.lines = { 
         "#bg gfx/bg1.png",
         "3017.UC",
-        "08.12 1745",
+        "08.12 1745 HOME",
         "#bg gfx/bg7.png",
         "I've received a fair amount of money from work this month due to some progress with my robotics work.",
         "I figure I should use this as an opportunity to treat {girl} to some food.",
