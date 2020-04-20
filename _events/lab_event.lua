@@ -5,7 +5,7 @@ function LabEvent:new()
     
     self.event_name = constants.lab_event.id
     self.event_success_text = ""
-    self.event_critical_text = "{girl} made a new breakthrough in her lab research today and was given a bonus."
+    self.event_critical_text = "{girl} made a new breakthrough in her lab research today. She can feel her brain expanding!"
     self.stat_growths = {
         StatGrowth("money", constants.lab_event.income_per_day_regular, constants.lab_event.income_per_day_lucky),
         StatGrowth("int", constants.lab_event.int_delta, constants.lab_event.int_delta),
