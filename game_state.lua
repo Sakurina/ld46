@@ -4,7 +4,7 @@ default_game_state = {
     current_year = 3014,
     current_month = 1,
     stats = {
-        money = 0,
+        money = 50,
 
         str = 0,
         int = 0,

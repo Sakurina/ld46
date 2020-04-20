@@ -299,7 +299,11 @@ function MainLayer:mousepressed(x, y, button, istouch, presses)
         local go_bottom_y = self.go_rect.y + self.go_rect.h
 
         if x >= go_left_x and x <= go_right_x and y >= go_top_y and y <= go_bottom_y then
-            self:pop_current_mode()
+            if self:all_days_planned() then
+                self:pop_current_mode()
+            else
+                self:set_textbox_string("You must plan an activity for each day this month!")
+            end
             return
         end
     end
@@ -437,4 +441,10 @@ function MainLayer:trigger_ending()
     local ending = self:current_ending()
     self.calendar.days[self.calendar.current_day].story = ending
     self.mode_queue = { "story" }
+end
+
+function MainLayer:all_days_planned()
+    return lume.all(self.calendar.days, function(d)
+        return d.daily_event ~= nil
+    end)
 end

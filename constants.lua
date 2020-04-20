@@ -32,14 +32,14 @@ constants = {
         cha = 610,
         dex = 860,
         morality = 610,
-        trust = 350, -- ????
-        stress = 100,
+        trust = 555,
+        stress = 150,
 
         business = 555,
         combat = 860,
         research = 555,
         cooking = 860,
-        alchemy = 350 -- ????
+        alchemy = 555
     },
 
     -- JOBS
@@ -69,7 +69,8 @@ constants = {
         income_per_day_regular = 9,
         income_per_day_lucky = 14,
         int_delta = 1,
-        research_delta = 1
+        research_delta = 1,
+        trust_delta = 1
     },
 
     acct_event = {
@@ -124,7 +125,8 @@ constants = {
         icon = "gfx/icon_study.png",
         cost_per_day = -1,
         int_delta_regular = 2,
-        int_delta_lucky = 3
+        int_delta_lucky = 3,
+        alchemy_delta = 1
     },
 
     cook_event = {
