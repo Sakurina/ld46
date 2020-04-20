@@ -44,7 +44,7 @@ function FirstContactStory:new()
 	"A long trail of scratch marks on the grating trace the journey of this egg to my doorstep.",
 	"Whoever wanted this here, made no mistake--this was meant for me.",
 	"Well... it's a good thing I have no neighbors... being Head of R&D for the neo-government, placed in my own private housing does come with",
-	"some perks, I suppose."
+	"some perks, I suppose.",
 	"I turn my attention back to the sleeping visage of the girl inside.",
 	"Who knows what someone might think if they saw this.",
 	"My praises of good fortune are quickly cut short, however, as the girl inside opens her eyes and turns her attention towards me.",
