@@ -19,6 +19,7 @@ function MidwayCheckupStory:new()
         "Well, I have no choice I suppose.",
         "I make sure to make as much noise grabbing the knob to alert her that I'm coming in.",
         "As the door swings open, I see her sitting at her desk with a device in her hand.",
+        "#portrait gfx/portrait_baby_{type}.png",
         "{girl}: !!",
         "Great, seems she's noticed me now.",
         "Her hands fumble around as she attempts to conceal the device.",

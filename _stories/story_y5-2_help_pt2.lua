@@ -29,6 +29,7 @@ function HelpPt2Story:new()
         "..",
         "..two people?",
         "Just as I begin to wonder who could be in my house, the door creaks open--",
+        "#portrait gfx/portrait_baby_{type}.png",
         "Oh yeah.",
         "{girl} lives here too now.",
         "{girl} stands in the doorway, mouth slightly agape.",

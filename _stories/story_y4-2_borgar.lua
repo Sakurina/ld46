@@ -17,6 +17,7 @@ function BorgarStory:new()
         "But today's special.",
         "Oh--",
         "--there she is.",
+        "#portrait gfx/portrait_baby_{type}.png",
         "{player}: \"I did some thinking for what we should eat for dinner today and...\"",
         "{girl}'s eyes perk up with a radiant glimmer.",
         "{player}: \"{girl}, let's get hamburgers today.\"",
