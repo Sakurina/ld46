@@ -4,8 +4,8 @@ function DeliveryEvent:new()
     LabEvent.super.new(self)
     
     self.event_name = constants.delivery_event.id
-    self.event_success_text = "{1} delivered some pizzas today."
-    self.event_critical_text = "{1} delivered some pizzas today and tips were better than usual."
+    self.event_success_text = ""
+    self.event_critical_text = "{girl} got more tips than usual on this delivery run!"
     self.stat_growths = {
         StatGrowth("money", constants.delivery_event.income_per_day_regular, constants.delivery_event.income_per_day_lucky),
         StatGrowth("stress", constants.delivery_event.stress_delta, constants.delivery_event.stress_delta),

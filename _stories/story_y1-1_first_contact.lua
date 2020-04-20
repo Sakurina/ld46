@@ -5,7 +5,7 @@ function FirstContactStory:new()
     self.lines = { 
 	"#bg gfx/bg1.png",	
         "30XX.UC",
-	"06.20 1500 HOME"
+	"06.20 1500 HOME",
 	"#bg gfx/bg7.png",
 	"...",
 	"..Nnh..",

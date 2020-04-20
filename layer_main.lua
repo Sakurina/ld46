@@ -149,6 +149,7 @@ function MainLayer:update(dt)
             self.blinky_counter = self.blinky_counter + 1
         end
     elseif lume.first(self.mode_queue) == "planning" then
+        self.background = love.graphics.newImage("gfx/bg7.png")
         if self.portrait == nil then
             if self.calendar.year == 3014 and self.calendar.month <= 4 then
                 self.portrait = love.graphics.newImage("gfx/portrait_egg.png")
@@ -219,7 +220,9 @@ function MainLayer:update(dt)
             elseif self.calendar:daily_event_needs_handling_today() then
                 local event = self.calendar:todays_daily_event()
                 event:determine_outcome({}) -- passing lifestyle choices todo
-                self:set_textbox_string(event.outcome_text)
+                if event.outcome_text ~= "" then
+                    self:set_textbox_string(event.outcome_text)
+                end
                 self:apply_stat_growths(self.game_state, event.stat_growths)
                 self.calendar:todays_daily_event_handled()
             end
