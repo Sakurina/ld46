@@ -3,6 +3,7 @@ SalarymanEnd = Story:extend()
 function SalarymanEnd:new()
     SalarymanEnd.super.new(self)
     self.lines = { 
+		"#bg gfx/bg1.png",
 		"EPILOGUE",
 		"1 week later.",
 		"*BEEP*",
