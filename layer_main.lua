@@ -17,7 +17,7 @@ function MainLayer:new()
 
     -- background and portrait
     self.background = nil
-    self.portrait = love.graphics.newImage("gfx/portrait_egg.png")
+    self.portrait = nil
 
     self.icons = {}
     self.icons[constants.black_event.id] = love.graphics.newImage(constants.black_event.icon)
@@ -161,7 +161,8 @@ function MainLayer:update(dt)
             if string_begins_with(line, "#portrait ") then
                 local path = string.gsub(line, "#portrait ", "")
                 if path ~= "none" then
-                    self.portrait = love.graphics.newImage(path)
+                    local type = self:current_flavor()
+                    self.portrait = love.graphics.newImage(lume.format(path, { type = type }))
                 else
                     self.portrait = nil
                 end
@@ -368,4 +369,17 @@ end
 function MainLayer:save_state()
     local as_json = json.encode(self.game_state)
     love.filesystem.write("game_state.json", as_json)
+end
+
+function MainLayer:current_flavor()
+    local cool = ((self.game_state.combat / constants.stat_caps.combat) + (self.game_state.alchemy / constants.stat_caps.alchemy)) / 2
+    local cute = ((self.game_state.alchemy / constants.stat_caps.alchemy) + (self.game_state.research / constants.stat_caps.research) + (self.game_state.business / constants.stat_caps.business)) / 3
+    local passion = ((self.game_state.business / constants.stat_caps.business) + (self.game_state.cooking / constants.stat_caps.cooking)) / 2
+    if cool > cute and cool > passion then
+        return "cool"
+    elseif passion > cool and passion > cute then
+        return "passion"
+    else
+        return "cute"
+    end
 end
