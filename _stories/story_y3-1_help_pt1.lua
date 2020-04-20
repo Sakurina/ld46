@@ -5,7 +5,7 @@ function HelpPt1Story:new()
     self.lines = { 
         "#bg gfx/bg1.png",
         "3016.UC",
-        "06.20 1730",
+        "06.20 1730 AUXILIARY DISTRICT",
         "#bg gfx/bg5.png",
         "We're out at the market doing some grocery shopping in the Auxiliary District.",
         "The food out here tends to taste...less sterile.",
