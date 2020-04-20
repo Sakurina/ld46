@@ -6,6 +6,7 @@ function CityIntroStory:new()
         "3014.UC",
         "04.01 1800",
         "It's been a couple months now, taking care of {girl}.",
+        "#portrait gfx/portrait_baby_{type}.png",
         "I've taken her out to walk in the city a couple times with the hope of getting her familiar with our planet but only through the Capital District.",
         "The Capital District housed the highest performers of society and it only made sense to take her there if I was to give her the best",
         "impression of humans.",
