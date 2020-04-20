@@ -5,7 +5,7 @@ function DeliveryEvent:new()
     
     self.event_name = constants.delivery_event.id
     self.event_success_text = ""
-    self.event_critical_text = "{girl} got more tips than usual on this delivery run!"
+    self.event_critical_text = "{girl} fulfilled the speed guarantee! She was tipped more than usual!"
     self.stat_growths = {
         StatGrowth("money", constants.delivery_event.income_per_day_regular, constants.delivery_event.income_per_day_lucky),
         StatGrowth("stress", constants.delivery_event.stress_delta, constants.delivery_event.stress_delta),
