@@ -3,8 +3,10 @@ HeadpatsStory = Story:extend()
 function HeadpatsStory:new()
     HeadpatsStory.super.new(self)
     self.lines = { 
+        "#bg gfx/bg1.png",
         "3015.UC",
         "02.14 2300",
+        "#bg gfx/bg7.png",
         "A gust of wind howls through my window as the metallic frame of the house reverberates against itself.",
         "I walk over to the window to shut it.",
         "Click.",
@@ -74,8 +76,9 @@ function HeadpatsStory:new()
         "..",
         "It's {girl}.",
         "...and she's already fast asleep.",
+        "#bg gfx/bg1.png",
         "..",
         "I hope the Outer Federation gives me points for how I handled this.",
-        "..When was the last time I got sleep as good as this?"
+        "That night I got some of the best rest I've ever had."
     }
 end
