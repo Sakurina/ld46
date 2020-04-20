@@ -5,7 +5,7 @@ function HeadpatsStory:new()
     self.lines = { 
         "#bg gfx/bg1.png",
         "3015.UC",
-        "02.14 2300",
+        "02.14 2300 HOME",
         "#bg gfx/bg7.png",
         "A gust of wind howls through my window as the metallic frame of the house reverberates against itself.",
         "I walk over to the window to shut it.",
