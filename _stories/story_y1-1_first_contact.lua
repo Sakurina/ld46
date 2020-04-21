@@ -12,7 +12,7 @@ function FirstContactStory:new()
 	"..Nnh..",
 	"A feel a light creep slowly up my face, the burn from its warmth prickling my skin.",
 	"What time is it?",
-	"Already 3PM...",
+	"3PM...",
 	"..already past noon.",
 	"I must've really overdone it last night analyzing that memory unit..",
 	"I haphazardly toss my sheets aside and muster the strength to start my day.",
