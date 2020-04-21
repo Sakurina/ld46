@@ -4,7 +4,7 @@ function FirstContactStory:new()
     FirstContactStory.super.new(self)
     self.lines = { 
 	"#bg gfx/bg1.png",	
-        "30XX.UC",
+        "3014.UC",
 	"06.20 1500 HOME",
 	"#bg gfx/bg7.png",
 	"#music bgm/Lazy Marine - 91 T1.wav",
