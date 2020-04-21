@@ -92,6 +92,7 @@ function MenuLayer:select_item()
     end
 
     if destination_layer ~= nil then
+        confirm_sound()
         layer_manager:transition(self, destination_layer)
     end
 end

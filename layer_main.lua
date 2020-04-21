@@ -238,6 +238,7 @@ end
 function MainLayer:keypressed(key, scancode, isrepeat)
     local current_mode = lume.first(self.mode_queue)
     if key == layer_manager.controls["Back"] then
+        back_sound()
         self:story_skip()
     elseif current_mode == "wait_for_text" then
         self:wait_for_text_input()
@@ -245,10 +246,10 @@ function MainLayer:keypressed(key, scancode, isrepeat)
         self:wait_for_any_input_input()
     elseif current_mode == "planning" then
         if key == layer_manager.controls["Schedule"] then
+            confirm_sound()
             self:spawn_schedule_layer()
-        elseif key == layer_manager.controls["Lifestyle"] then
-            self:spawn_lifestyle_layer()
         elseif key == layer_manager.controls["Stats"] then
+            confirm_sound()
             self:spawn_stats_layer()
         end
     end
@@ -284,6 +285,7 @@ function MainLayer:mousepressed(x, y, button, istouch, presses)
         local stats_bottom_y = self.stats_rect.y + self.stats_rect.h
 
         if x >= stats_left_x and x <= stats_right_x and y >= stats_top_y and y <= stats_bottom_y then
+            confirm_sound()
             self:spawn_stats_layer()
             return
         end
@@ -294,6 +296,7 @@ function MainLayer:mousepressed(x, y, button, istouch, presses)
         local sched_bottom_y = self.schedule_rect.y + self.schedule_rect.h
 
         if x >= sched_left_x and x <= sched_right_x and y >= sched_top_y and y <= sched_bottom_y then
+            confirm_sound()
             self:spawn_schedule_layer()
             return
         end
@@ -305,8 +308,10 @@ function MainLayer:mousepressed(x, y, button, istouch, presses)
 
         if x >= go_left_x and x <= go_right_x and y >= go_top_y and y <= go_bottom_y then
             if self:all_days_planned() then
+                confirm_sound()
                 self:pop_current_mode()
             else
+                confirm_sound()
                 self:set_textbox_string("You must plan an activity for each day this month!")
             end
             return

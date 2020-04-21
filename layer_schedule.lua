@@ -247,18 +247,23 @@ function ScheduleLayer:keypressed(key, scancode, isrepeat)
     end
 
     if key == layer_manager.controls["Back"] then
+        back_sound()
         layer_manager:remove_first()
     elseif key == layer_manager.controls["Up"] then
+        confirm_sound()
         if self.current_week > 1 then
             self.current_week = self.current_week - 1
         end
     elseif key == layer_manager.controls["Down"] then
+        confirm_sound()
         if self.current_week < self.calendar:week_count() then
             self.current_week = self.current_week + 1
         end
     elseif key == layer_manager.controls["Left"] then
+        confirm_sound()
         self:previous_set()
     elseif key == layer_manager.controls["Right"] then
+        confirm_sound()
         self:next_set()
     end
 end
@@ -272,6 +277,7 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect.y
         local bottom_y = rect.y + rect.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
+            confirm_sound()
             self.current_week = week
             return
         end
@@ -284,6 +290,7 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect2.y
         local bottom_y = rect2.y + rect2.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
+            confirm_sound()
             self.calendar:set_week_event(self.current_week, self:event_for_id(id))
             return
         end
@@ -296,6 +303,7 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect3.y
         local bottom_y = rect3.y + rect3.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
+            confirm_sound()
             self:switch_visible_set(id)
             return
         end
@@ -306,6 +314,7 @@ function ScheduleLayer:mousepressed(x, y, button, istouch, presses)
     local close_top_y = self.close_rect.y
     local close_bottom_y = self.close_rect.y + self.close_rect.h
     if x >= close_left_x and x <= close_right_x and y >= close_top_y and y <= close_bottom_y then
+        back_sound()
         layer_manager:remove_first()
         return
     end

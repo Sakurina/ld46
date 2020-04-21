@@ -77,10 +77,12 @@ function StatsLayer:keypressed(key, scancode, isrepeat)
     end
 
     if key == layer_manager.controls["Back"] then
+        back_sound()
         layer_manager:remove_first()
     end
 end
 
 function StatsLayer:mousepressed(x, y, button, istouch, presses)
+    back_sound()
     layer_manager:remove_first()
 end

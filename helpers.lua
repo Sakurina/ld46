@@ -27,3 +27,11 @@ end
 function string_begins_with(str, start)
     return string.sub(str, 1, string.len(start)) == start
 end
+
+function confirm_sound()
+    TEsound.play("sfx/sfx_select.wav", "static", "sfx")
+end
+
+function back_sound()
+    TEsound.play("sfx/sfx_back.wav", "static", "sfx")
+end

@@ -124,6 +124,7 @@ end
 function PrologueLayer:keypressed(key, scancode, isrepeat)
     local current_mode = lume.first(self.mode_queue)
     if key == layer_manager.controls["Back"] then
+        back_sound()
         self.mode_queue = { "logo" }
     elseif current_mode == "wait_for_text" then
         self:wait_for_text_input()

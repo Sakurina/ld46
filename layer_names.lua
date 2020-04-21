@@ -106,20 +106,24 @@ function NamesLayer:keypressed(key, scancode, isrepeat)
     local alpha = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
     local is_alpha = lume.any(alpha, function(a) return a == key end)
     if key == "tab" then
+        confirm_sound()
         if self.focus_field == "taker" then
             self.focus_field = "giver"
         elseif self.focus_field == "giver" then
             self.focus_field = "taker"
         end
     elseif key == "backspace" then
+        back_sound()
         if self.focus_field == "taker" then
             self.taker_name = string.sub(self.taker_name, 1, #self.taker_name - 1)
         elseif self.focus_field == "giver" then
             self.giver_name = string.sub(self.giver_name, 1, #self.giver_name - 1)
         end
     elseif key == layer_manager.controls["Confirm"] then
+        confirm_sound()
         self:lets_mosey()
     elseif is_alpha then
+        confirm_sound()
         if love.keyboard.isDown("lshift") or love.keyboard.isDown("rshift") then
             key = string.upper(key)
         end
@@ -140,6 +144,7 @@ function NamesLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect.y
         local bottom_y = rect.y + rect.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
+            confirm_sound()
             self.focus_field = id
             return
         end
@@ -152,6 +157,7 @@ function NamesLayer:mousepressed(x, y, button, istouch, presses)
         local top_y = rect.y
         local bottom_y = rect.y + rect.h
         if x >= left_x and x <= right_x and y >= top_y and y <= bottom_y then
+            confirm_sound()
             self.focus_field = id
             return
         end
@@ -163,6 +169,7 @@ function NamesLayer:mousepressed(x, y, button, istouch, presses)
     local go_top_y = self.go_rect.y
     local go_bottom_y = self.go_rect.y + self.go_rect.h
     if x >= go_left_x and x <= go_right_x and y >= go_top_y and y <= go_bottom_y then
+        confirm_sound()
         self:lets_mosey()
         return
     end

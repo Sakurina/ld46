@@ -48,8 +48,10 @@ function ControlsLayer:keypressed(key, scancode, isrepeat)
     elseif key == layer_manager.controls["Down"] then
         self:next_item()
     elseif key == layer_manager.controls["Confirm"] then
+        confirm_sound()
         self:select_item()
     elseif key == layer_manager.controls["Back"] then
+        back_sound()
         self:save_bindings()
         local destination_layer = MenuLayer()
         destination_layer:pause()
