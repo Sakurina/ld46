@@ -82,5 +82,6 @@ function HeadpatsStory:new()
         "..",
         "I hope the Outer Federation gives me points for how I handled this.",
         "That night I got some of the best rest I've ever had."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

@@ -1,5 +1,5 @@
 lume = require "deps/lume"
-lovebird = require "deps/lovebird"
+--lovebird = require "deps/lovebird"
 Object = require "deps/classic"
 json = require "deps/json"
 require("deps/tesound")
@@ -79,7 +79,7 @@ function love.draw()
 end
 
 function love.update(dt)
-    lovebird.update()
+    --lovebird.update()
     layer_manager:update(dt)
     TEsound.cleanup()
 end

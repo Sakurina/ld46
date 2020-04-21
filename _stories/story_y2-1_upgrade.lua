@@ -44,5 +44,6 @@ function UpgradeStory:new()
         "{girl}: \"No.\"",
         "{girl}: \"This is fine..{player}.\"",
         "Yes, that's me, I'm {player}."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

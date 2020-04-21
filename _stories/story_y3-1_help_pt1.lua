@@ -70,5 +70,6 @@ function HelpPt1Story:new()
         "{girl}: (nods)",
         "#bg gfx/bg5.png",
         "We spent the rest of the evening picking up apples."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

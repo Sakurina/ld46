@@ -65,5 +65,6 @@ function CityIntroStory:new()
         "{player}: ..",
         "{girl}: ...",
         "We finish our ice-cream together in silence."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

@@ -62,5 +62,6 @@ function MidwayCheckupStory:new()
         "..",
         "...",
         "Good thing I cut those apples."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

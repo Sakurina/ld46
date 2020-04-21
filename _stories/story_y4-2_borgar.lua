@@ -76,5 +76,6 @@ function BorgarStory:new()
         "#bg gfx/bg6.png",
         "Damn.",
         "I could probably eat three or four of these."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

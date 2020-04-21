@@ -82,5 +82,6 @@ function HelpPt2Story:new()
         "#bg gfx/bg6.png",
         "White-coated Man: \"Daughters sure are something, aren't they?\"",
         "{player}: ...Yeah."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

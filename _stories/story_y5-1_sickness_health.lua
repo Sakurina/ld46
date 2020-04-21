@@ -45,5 +45,6 @@ function SicknessHealthStory:new()
         "I'm just going to take..",
         "..a nap for a little bit...",
         "..."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

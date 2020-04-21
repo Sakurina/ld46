@@ -120,5 +120,6 @@ function FirstContactStory:new()
 	"The girl stops fidgeting.",
 	"Her hand gently meets a lock of hair covering her face, tucking it behind her ear.",
 	"GIVER:\"..(nods)..\""
+	,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end

@@ -40,5 +40,6 @@ function AloneStory:new()
         ".",
         "The next day I suggested we make our A.I. fail to my colleagues.",
         "They thought I was joking..."
+		,"#music bgm/Lazy Marine - 91 full.wav"
     }
 end
