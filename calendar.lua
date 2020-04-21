@@ -21,6 +21,10 @@ function Calendar:new(year, month)
         end
         thisDay.week_num = week_num
 
+        if year == 3018 and month == 12 and i >= 18 and i <= 24 then
+            thisDay.sick = true
+        end
+
         if year == 3014 and month == 1 and i == 1 then
             thisDay.story = FirstContactStory()
         elseif year == 3014 and month == 04 and i == 1 then
@@ -38,6 +42,8 @@ function Calendar:new(year, month)
         elseif year == 3017 and month == 8 and i == 12 then
             thisDay.story = BorgarStory()
         elseif year == 3018 and month == 12 and i == 18 then
+            thisDay.story = SicknessHealthStory()
+        elseif year == 3018 and month == 12 and i == 25 then
             thisDay.story = HelpPt2Story()
         elseif year == 3019 and month == 12 and i == 31 then
             thisDay.story = GoodbyeStory()
