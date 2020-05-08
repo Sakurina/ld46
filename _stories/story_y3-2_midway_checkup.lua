@@ -31,7 +31,6 @@ function MidwayCheckupStory:new()
         "But if the Outer Federation is watching me even now, I should probably pretend like I didn't see anything.",
         "{player}: \"Just wanted to let you know that lunch was ready.\"",
         "{girl}: \"..Okay..\"",
-        "#music bgm/Lazy Marine - 91 T3.wav",
         "*BEEP*",
         "What?",
         "*BEEP*",
