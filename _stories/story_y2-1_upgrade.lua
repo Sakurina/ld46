@@ -22,7 +22,6 @@ function UpgradeStory:new()
         "{girl}: \"Like what?\"",
         "{player}: \"Oh you know, like anything else.\"",
         "She raises her hand to her chin, clearly deep in thought.",
-        "#music bgm/Lazy Marine - 91 T3.wav",
         "{girl}: ...",
         "{girl}: \"..Daddy?\"",
         "No.",
