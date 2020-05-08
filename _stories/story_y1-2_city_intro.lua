@@ -34,7 +34,6 @@ function CityIntroStory:new()
         "{player}: ..?",
         "{girl}: ...",
         "She's staring at an emblem engraved into the side of a store selling ice-cream.",
-        "#music bgm/Lazy Marine - 91 T2.wav",
         "{girl}: ...",
         "{player}: \"Oh, that?\"",
         "{player}: \"That's the former Royal Crest.\"",
