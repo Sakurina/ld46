@@ -433,7 +433,7 @@ function MainLayer:current_ending()
     elseif self.game_state.stats.int <= 305 and self.game_state.stats.cha <= 305 then
         -- salaryman
         return SalarymanEnd()
-    elseif self.game_state.stats.cha >= 780 and self.game_state.stats.dex >= 780 then
+    elseif self.game_state.stats.cha >= 555 and self.game_state.stats.dex >= 780 then
         -- chef
         return ChefEnd()
     elseif self.game_state.stats.int >= 780 then
